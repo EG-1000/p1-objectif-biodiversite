@@ -11,15 +11,15 @@ if (stristr($_SERVER['HTTP_HOST'], 'local') || (substr($_SERVER['HTTP_HOST'], 0,
 // Selon l'environnement d'exécution (développement ou production)
 if ($blnLocal) {
     $strHost = 'localhost';
-    $strBD = 'off_pwem2_2026';
-    $strUser = 'off_pwem2_2026';
-    $strPassword = 'pwem2_mdp'; //ajuster au bon mot de passe.
+    $strBD = '26_libresEsprits';
+    $strUser = '26_libresEsprits';
+    $strPassword = 'RhitaEmile'; //ajuster au bon mot de passe.
     error_reporting(E_ALL);
 } else {
     $strHost = 'timunix3.cegep-ste-foy.qc.ca';
-    $strBD = 'prgm1_course';
-    $strUser = 'courseTim';
-    $strPassword = 'OFFt1m';
+    $strBD = '26_libresEsprits';
+    $strUser = '26_libresEsprits';
+    $strPassword = 'RhitaEmile';
     error_reporting(E_ALL & ~E_NOTICE);
 }
 
