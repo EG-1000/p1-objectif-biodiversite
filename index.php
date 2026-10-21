@@ -1,6 +1,7 @@
 <?php
-$niveau=' ';
-include($niveau ."inc/confige.inc.php");
+$niveau = ' ';
+include($niveau . "inc/confige.inc.php");
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -47,6 +48,7 @@ include($niveau ."inc/confige.inc.php");
     
 
     <footer>
+        <h4>Gouvernement du Quebec</h4>
         <qc-piv-footer>
             <nav aria-label="Navigation du pied de page">
                 <ul>
