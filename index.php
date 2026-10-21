@@ -1,6 +1,6 @@
 <?php
 
-$niveau = "../";
+
 include("inc/config.inc.php");
 ?>
 <!DOCTYPE html>
