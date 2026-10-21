@@ -1,7 +1,7 @@
 <?php
 
 $niveau = "../";
-include($niveau . "inc/config.inc.php");
+include("inc/config.inc.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
