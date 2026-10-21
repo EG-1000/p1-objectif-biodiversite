@@ -21,27 +21,38 @@ include($niveau ."inc/confige.inc.php");
 
 <body>
     <header>
-        <qc-piv-header
-            title-text="Démonstration — Système de design gouvernemental"
-            alt-logo="Signature du gouvernement du Québec.">
+        <div id="pivEnteteExempleRecherchePersonnalisee">
+        <qc-piv-header title-text="Objectif Biodiversité Québec"
+                        title-url
+                        alt-logo="Accédez à Québec.ca"
+                        enable-search="true"
+                        show-search="true">
+            <ul slot="links">
+            <li><a href="#fakeEnglish">English</a>
+            </li>
+            <li><a href="#">Nous joindre</a>
+            </li>
+            </ul>
+
+            <form slot="search-zone"
+                method="get"
+                action="https://www.google.ca/search">
+            <qc-search-bar name="q"
+                            piv-background></qc-search-bar>
+            </form>
         </qc-piv-header>
+        </div>
     </header>
 
-    <main id="main" class="qc-container">
-        <h1 class="qc-h1">Titre de niveau 1</h1>
-        <h1 id="exemple-titre-h1"
-            class="qc-h1"><span class="qc-subhead ">Surtitre</span>Titre de niveau 1 avec surtitre
-        </h1>
-        <h2 class="qc-h2">Titre de niveau 2</h2>
-        <p class="accent">Un texte en accent et un <span> span. </span>
-        </p>
-    </main>
+    
 
     <footer>
         <qc-piv-footer>
             <nav aria-label="Navigation du pied de page">
                 <ul>
-                    <li><a href="<?php echo $niveau ?>">Accueil</a></li>
+                    <li>Accessibilité</li>
+                    <li>Conditions d’utilisation</li>
+                    <li>Confidentialité</li>
                     <li><a href="https://design.quebec.ca" target="_blank" rel="noopener">Système de design gouvernemental</a></li>
                 </ul>
             </nav>
