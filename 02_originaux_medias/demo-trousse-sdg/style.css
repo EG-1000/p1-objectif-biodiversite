@@ -1,0 +1,10 @@
+/* Test - Démo */
+
+.accent {
+  color: var(--qc-color-accent);
+  span {
+    color: var(--qc-color-grey-pale);
+    background-color: var(--qc-color-blue-dark);
+    padding: 0.5em;
+  }
+}
