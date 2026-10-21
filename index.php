@@ -1,6 +1,6 @@
 <?php
-
-include('inc/config.inc.php');
+$niveau=' ';
+include($niveau ."inc/confige.inc.php");
 ?>
 <!doctype html>
 <html lang="fr">
@@ -11,11 +11,11 @@ include('inc/config.inc.php');
     <title>p1</title>
 
     <!-- Feuille de styles de la trousse (design gouvernemental). -->
-    <link rel="stylesheet" href="sdg/dist/css/qc-sdg.min.css">
+    <link rel="stylesheet" href="assets/sdg/dist/css/qc-sdg.min.css">
     <link rel="stylesheet" href="style.css">
 
     <!-- Script des composants web de la trousse. -->
-    <script defer src="sdg/dist/js/qc-sdg.min.js"></script>
+    <script defer src="assets/sdg/dist/js/qc-sdg.min.js"></script>
 
 </head>
 
