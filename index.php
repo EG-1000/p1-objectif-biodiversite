@@ -1,9 +1,8 @@
 <?php
 
-
-include("inc/config.inc.php");
+include('inc/config.inc.php');
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 
 <head>
