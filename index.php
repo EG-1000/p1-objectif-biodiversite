@@ -43,6 +43,18 @@ include($niveau . "inc/confige.inc.php");
             </form>
         </qc-piv-header>
         </div>
+        <nav class="nav-menu">
+            <ul class="nav-menu__list">
+                <li class="nav-menu__item">
+                    <a class="nav-menu__link" href="<?php echo $niveau; ?>index.php">Accueil</a></li>
+                <li class="nav-menu__item">
+                    <a class="nav-menu__link" href="<?php echo $niveau; ?>especes/index.php">Espèces</a></li>
+                <li class="nav-menu__item">
+                    <a class="nav-menu__link" href="<?php echo $niveau; ?>#">À propos</a></li>
+                <li class="nav-menu__item">
+                    <a class="nav-menu__link" href="<?php echo $niveau; ?>#">Nous contacter</a></li>
+            </ul>
+        </nav>
     </header>
 
     
