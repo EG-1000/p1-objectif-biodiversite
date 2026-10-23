@@ -24,10 +24,28 @@ include($niveau . "inc/config.inc.php");
 
 <body>
     <header>
-        <qc-piv-header
-            title-text="Démonstration — Système de design gouvernemental"
-            alt-logo="Signature du gouvernement du Québec.">
-        </qc-piv-header>
+        <div id="pivEnteteExempleRecherchePersonnalisee">
+            <qc-piv-header title-text="Objectif Biodiversité Québec"
+                title-url
+                alt-logo="Accédez à Québec.ca"
+                enable-search="true"
+                show-search="true">
+                <ul slot="links">
+                    <li><a href="#fakeEnglish">English</a>
+                    </li>
+                    <li><a href="#">Nous joindre</a>
+                    </li>
+                </ul>
+
+                <form slot="search-zone"
+                    method="get"
+                    action="https://www.google.ca/search">
+                    <qc-search-bar name="q"
+                        piv-background></qc-search-bar>
+                </form>
+            </qc-piv-header>
+        </div>
+
     </header>
 
     <main id="main">
