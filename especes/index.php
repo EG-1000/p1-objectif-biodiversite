@@ -21,7 +21,9 @@ include($niveau . "inc/config.inc.php");
     <!-- Script des composants web de la trousse. -->
     <script defer src="<?php echo $niveau ?>assets/sdg/dist/js/qc-sdg.min.js"></script>
 </head>
-
+<?php
+$nbEspeceParPage = 10; // Définir le nombre d'articles par page
+?>
 <body>
     <header>
         <div id="pivEnteteExempleRecherchePersonnalisee">
@@ -50,11 +52,15 @@ include($niveau . "inc/config.inc.php");
 
     <main id="main">
         <div class="qc-container">
-            <h1>Liste des espèces</h1>
+            <h1 class="qc-mb-4">Liste des espèces fauniques menacées ou vulnérables</h1>
             <?php
-            $strRequete = "SELECT * FROM especes"; // Remplacez "especes" par le nom de votre table
+            $strRequete = "SELECT * FROM especes WHERE   "; // Remplacez "especes" par le nom de votre table
+            $resultat = $pdoConnexion->query($strRequete);
+            $section = $resultat->fetchAll(PDO::FETCH_ASSOC);
+$nbPages = ceil(count($section) / $nbEspeceParPage);
             ?>
         </div>
+        <?php ?>
     </main>
 
     <footer>
