@@ -10,7 +10,7 @@ if (stristr($_SERVER['HTTP_HOST'], 'local') || (substr($_SERVER['HTTP_HOST'], 0,
 
 // Selon l'environnement d'exécution (développement ou production)
 if ($blnLocal) {
-    $strHost = 'localhost:8888';
+    $strHost = 'localhost';
     $strBD = '26_libresEsprits';
     $strUser = '26_libresEsprits';
     $strPassword = 'RhitaEmile';
