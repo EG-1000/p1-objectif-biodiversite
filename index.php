@@ -12,8 +12,7 @@ include($niveau . "inc/confige.inc.php");
     <title>p1</title>
 
     <!-- Feuille de styles de la trousse (design gouvernemental). -->
-    <link rel="stylesheet" href="assets/sdg/dist/css/qc-sdg.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/sdg/dist/css/styles.css">
 
     <!-- Script des composants web de la trousse. -->
     <script defer src="assets/sdg/dist/js/qc-sdg.min.js"></script>
@@ -56,6 +55,17 @@ include($niveau . "inc/confige.inc.php");
             </ul>
         </nav>
     </header>
+    <main>
+        <picture class="image">
+              <source media="(max-width: 360px)"
+              srcset="assets/images/IMG_Tortue-Luth_LouisabelleGagnon.jpg">
+              <img class="img" src="assets/images/IMG_Tortue-Luth_LouisabelleGagnon.jpg" alt="Tortue Luth LouisabelleGagnon">
+              <div>
+                <a href="especes/index.php" class="qc-button qc-primary">Découvrir les espèces</a>
+              </div>
+        </picture>
+        <h2>Accueil</h1>
+    </main>
 
     
 
