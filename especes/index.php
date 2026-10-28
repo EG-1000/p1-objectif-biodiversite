@@ -6,6 +6,21 @@
  **/
 $niveau = "../";
 include($niveau . "inc/config.inc.php");
+if (isset($_GET['id_page'])) {
+    $strIdPage = max(0, (int) $_GET['id_page']);
+} else {
+    $strIdPage = 0;
+}
+if (isset($_GET['id_espece'])) {
+    $strIdEspece = max(0, (int) $_GET['id_espece']);
+} else {
+    $strIdEspece = 0;
+}
+if (isset($_GET['id_groupe'])) {
+    $strIdGroupe = max(0, (int) $_GET['id_espece']);
+} else {
+    $strIdGroupe = 0;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,7 +38,9 @@ include($niveau . "inc/config.inc.php");
 </head>
 <?php
 $nbEspeceParPage = 10; // Définir le nombre d'articles par page
+$enregistrementDepart = $strIdPage * $nbEspeceParPage;
 ?>
+
 <body>
     <header>
         <div id="pivEnteteExempleRecherchePersonnalisee">
@@ -54,13 +71,50 @@ $nbEspeceParPage = 10; // Définir le nombre d'articles par page
         <div class="qc-container">
             <h1 class="qc-mb-4">Liste des espèces fauniques menacées ou vulnérables</h1>
             <?php
-            $strRequete = "SELECT * FROM especes WHERE   "; // Remplacez "especes" par le nom de votre table
-            $resultat = $pdoConnexion->query($strRequete);
+            $strRequeteespece = "SELECT especes.id AS id_espece, nom_scientifique, nom_francais, statut_LEMV FROM especes ORDER BY nom_francais
+            LIMIT " . $enregistrementDepart . ', ' . $nbEspeceParPage;
+            if ($strIdGroupe != 0) {
+                $strRequete2 = 'SELECT COUNT(*) AS nbEnregistrement FROM especes INNER JOIN groupes ON especes.id_groupe = groupes.id WHERE groupes.id=' . $strIdGroupe;
+            } else {
+                $strRequete2 = 'SELECT COUNT(*) AS nbEnregistrement FROM especes';
+            }
+            $resultat = $pdoConnexion->query($strRequeteespece);
             $section = $resultat->fetchAll(PDO::FETCH_ASSOC);
-$nbPages = ceil(count($section) / $nbEspeceParPage);
+            $pdosResultat2 = $pdoConnexion->query($strRequete2);
+            $totalespece2 = $pdosResultat2->fetch();
+            $nbespece = $totalespece2['nbEnregistrement'];
+            $nbPages = ceil($nbespece / $nbEspeceParPage);
+            foreach ($section as $espece) {
+                $strrequetegroupe = "SELECT groupes.id AS id_groupe, nom_groupe FROM groupes";
+                $pdoresultatgroupe = $pdoConnexion->query($strrequetegroupe);
+                $ligneGroupe = $pdoresultatgroupe->fetchAll(PDO::FETCH_ASSOC);
+                $strGroupe = ' ';
+                foreach ($ligneGroupe as $groupe) {
+                    $strGroupe = $strGroupe . $groupe["nom_groupe"] . "," . " ";
+                }
+                echo "<li>" . "<a href= 'fiche/index.php?id={$strIdEspece}'>"
+                    . $espece["nom_francais"] . "</a>" . " "
+                    . "Espece :" . $strGroupe . "</li>";
+            }
+            $resultat->closeCursor();
+            $pdosResultat2->closeCursor();
             ?>
         </div>
-        <?php ?>
+
+        <?php
+        if ($strIdPage > 0) { ?>
+            <a href='index.php?id_page=<?php echo ($strIdPage - 1); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'>Page précédente</a>
+            <?php }
+        if ($nbPages > 1) {
+            for ($cpt = 0; $cpt < $nbPages; $cpt++) { ?>
+                <a href='index.php?id_page=<?php echo ($cpt); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'><?php echo ($cpt + 1); ?></a>
+            <?php }
+        }
+
+        if ($strIdPage < $nbPages - 1) { ?>
+            <a href='index.php?id_page=<?php echo ($strIdPage + 1); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'>Page suivante</a>
+        <?php } ?>
+        <br>page <?php echo ($strIdPage + 1); ?> sur <?php echo ($nbPages); ?>
     </main>
 
     <footer>
