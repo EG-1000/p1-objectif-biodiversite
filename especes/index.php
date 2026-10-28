@@ -4,7 +4,7 @@
  * DÉMO utilisation du Système de Design Gouvernemental
  * 
  **/
-$niveau = '../';
+$niveau = "../";
 include($niveau . "inc/config.inc.php");
 
 if (isset($_GET['id_page'])) {
@@ -18,7 +18,7 @@ if (isset($_GET['id_espece'])) {
     $strIdEspece = 0;
 }
 if (isset($_GET['id_groupe'])) {
-    $strIdGroupe = max(0, (int) $_GET['id_espece']);
+    $strIdGroupe = max(0, (int) $_GET['id_groupe']);
 } else {
     $strIdGroupe = 0;
 }
@@ -101,21 +101,22 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
             $pdosResultat2->closeCursor();
             ?>
         </div>
+        <div class="qc-pagination">
+            <?php
+            if ($strIdPage > 0) { ?>
+                <a href='index.php?id_page=<?php echo ($strIdPage - 1); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'>Page précédente</a>
+                <?php }
+            if ($nbPages > 1) {
+                for ($cpt = 0; $cpt < $nbPages; $cpt++) { ?>
+                    <a href='index.php?id_page=<?php echo ($cpt); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'><?php echo ($cpt + 1); ?></a>
+                <?php }
+            }
 
-        <?php
-        if ($strIdPage > 0) { ?>
-            <a href='index.php?id_page=<?php echo ($strIdPage - 1); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'>Page précédente</a>
-            <?php }
-        if ($nbPages > 1) {
-            for ($cpt = 0; $cpt < $nbPages; $cpt++) { ?>
-                <a href='index.php?id_page=<?php echo ($cpt); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'><?php echo ($cpt + 1); ?></a>
-            <?php }
-        }
-
-        if ($strIdPage < $nbPages - 1) { ?>
-            <a href='index.php?id_page=<?php echo ($strIdPage + 1); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'>Page suivante</a>
-        <?php } ?>
-        <br>page <?php echo ($strIdPage + 1); ?> sur <?php echo ($nbPages); ?>
+            if ($strIdPage < $nbPages - 1) { ?>
+                <a href='index.php?id_page=<?php echo ($strIdPage + 1); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'>Page suivante</a>
+            <?php } ?>
+            <br>page <?php echo ($strIdPage + 1); ?> sur <?php echo ($nbPages); ?>
+        </div>
     </main>
 
     <footer>
