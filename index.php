@@ -1,6 +1,6 @@
 <?php
-$niveau = ' ';
-include($niveau . "inc/confige.inc.php");
+$niveau ='';
+include($niveau . "inc/config.inc.php");
 
 ?>
 <!doctype html>

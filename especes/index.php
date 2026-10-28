@@ -4,8 +4,9 @@
  * DÉMO utilisation du Système de Design Gouvernemental
  * 
  **/
-$niveau = "./";
+$niveau = '../';
 include($niveau . "inc/config.inc.php");
+
 if (isset($_GET['id_page'])) {
     $strIdPage = max(0, (int) $_GET['id_page']);
 } else {

@@ -12,8 +12,8 @@ if (stristr($_SERVER['HTTP_HOST'], 'local') || (substr($_SERVER['HTTP_HOST'], 0,
 if ($blnLocal) {
     $strHost = 'localhost';
     $strBD = '26_libresEsprits';
-    $strUser = '26_libresEsprits';
-    $strPassword = 'RhitaEmile';
+    $strUser = 'root';
+    $strPassword = 'root';
     error_reporting(E_ALL);
 } else {
     $strHost = 'timunix3.cegep-ste-foy.qc.ca';
@@ -24,7 +24,7 @@ if ($blnLocal) {
 }
 
 // Data Source Name pour l'objet PDO
-$strDsn = 'mysql:dbname=' . $strBD . ';host=' . $strHost;
+$strDsn = 'mysql:dbname='.$strBD.';host='.$strHost;
 
 // Tentative de connexion
 $pdoConnexion = new PDO($strDsn, $strUser, $strPassword);
@@ -34,3 +34,4 @@ $pdoConnexion->exec("SET CHARACTER SET utf8");
 
 // Pour obtenir des rapports d'erreurs et d'exception avec errorInfo()
 $pdoConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+?>
