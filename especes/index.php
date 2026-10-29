@@ -93,7 +93,7 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
                 foreach ($ligneGroupe as $groupe) {
                     $strGroupe = $strGroupe . $groupe["nom_groupe"] . "," . " ";
                 }
-                echo "<li>" . "<a href= 'fiche/index.php?id={$strIdEspece}'>"
+                echo "<li>" . "<a href='fiche/index.php?id=".$espece["id_espece"]."'>"
                     . $espece["nom_francais"] . "</a>" . " "
                     . "Espece :" . $strGroupe . "</li>";
             }
@@ -123,7 +123,7 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
         <qc-piv-footer>
             <nav aria-label="Navigation du pied de page">
                 <ul>
-                    <li><a href="<?php echo $niveau ?>./index.php">Accueil</a></li>
+                    <li><a href="<?php echo $niveau ?>index.php">Accueil</a></li>
                     <li><a href="https://design.quebec.ca" target="_blank" rel="noopener">Système de design gouvernemental</a></li>
                 </ul>
             </nav>
