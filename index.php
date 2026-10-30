@@ -1,7 +1,7 @@
 <?php
 $niveau = '';
 
-include($niveau . "inc/confinge.inc.php");
+include($niveau . "inc/config.inc.php");
 ?>
 <!doctype html>
 <html lang="fr">
@@ -12,10 +12,10 @@ include($niveau . "inc/confinge.inc.php");
     <title>p1</title>
 
     <!-- Feuille de styles de la trousse (design gouvernemental). -->
-    <link rel="stylesheet" href="Assets/sdg/dist/css/styles.css">
+    <link rel="stylesheet" href="assets/sdg/dist/css/styles.css">
 
     <!-- Script des composants web de la trousse. -->
-    <script defer src="Assets/sdg/dist/js/qc-sdg.min.js"></script>
+    <script defer src="assets/sdg/dist/js/qc-sdg.min.js"></script>
 
 </head>
 

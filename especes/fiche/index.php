@@ -1,6 +1,6 @@
 <?php
 $niveau = "../../";
-include($niveau . "inc/confinge.inc.php");
+include($niveau . "inc/config.inc.php");
 
 if (isset($_GET['id'])) {
     $strIdEspece = max(0, (int) $_GET['id']);
@@ -42,6 +42,21 @@ for ($cpt = 0; $cpt < $pdosResultat->rowCount(); $cpt++) {
     $ligne = $pdosResultat->fetch();
 }
 $pdosResultat->closeCursor();
+
+$strRequeteCarte = 'SELECT nom_image, `bas-de-vignette`
+               FROM images
+               WHERE `est_aire-repartition` = 1';
+
+$pdosResultatCarte = $pdoConnexion->query($strRequeteCarte);
+
+$arrCartes = array();
+$ligne = $pdosResultatCarte->fetch();
+for ($cpt = 0; $cpt < $pdosResultatCarte->rowCount(); $cpt++) {
+    $arrCartes['nom_image']  = $ligne['nom_image'];
+    $arrCartes['bas-de-vignette']  = $ligne['bas-de-vignette'];
+    $ligne = $pdosResultatCarte->fetch();
+}
+$pdosResultatCarte->closeCursor();
 
 $strRequeteMenaceeSimilaires = 'SELECT DISTINCT especes.id, especes.nom_francais
                          FROM especes
@@ -122,6 +137,16 @@ $pdosResultatSim->closeCursor();
             <p>Groupe<br><?php echo $arrEspeces['nom_groupe']; ?></p>
             <h2>Répartition</h2>
             <p><?php echo $arrEspeces['repartition']; ?></p>
+            <figure>
+                <img alt="Image de l'espèce <?php echo $arrEspeces['nom_francais']; ?>"
+                    src="<?php echo $niveau ?>assets/images/<?php echo $arrCartes['nom_image']; ?>">
+
+                <figcaption>
+                    <p><?php echo $arrEspeces['nom_francais']; ?><br>
+                        <em><?php echo $arrCartes['bas-de-vignette']; ?></em>
+                    </p>
+                </figcaption>
+            </figure>
             <h2>Habitat</h2>
             <p><?php echo $arrEspeces['habitat']; ?></p>
             <h2>État de la situation</h2>
@@ -136,13 +161,26 @@ $pdosResultatSim->closeCursor();
             <p><?php echo $arrEspeces['menaces']; ?></p>
             <h2>Espèces du même groupe</h2>
             <h3>Menacé</h3>
-
-
-
+            <ul>
+                <?php for ($cpt = 0; $cpt < count($arrEspecesMenaceeSimilaires); $cpt++) { ?>
+                <li>
+                    <a href="index.php?id=<?php echo $arrEspecesMenaceeSimilaires[$cpt]['id']; ?>">
+                    <?php echo $arrEspecesMenaceeSimilaires[$cpt]['nom_francais']; ?>
+                    </a>
+                </li>
+                <?php } ?>
+            </ul>
             <h3>Vulnérables</h3>
-
+            <ul>
+                <?php for ($cpt = 0; $cpt < count($arrEspecesVulSimilaires); $cpt++) { ?>
+                <li>
+                    <a href="index.php?id=<?php echo $arrEspecesVulSimilaires[$cpt]['id']; ?>">
+                    <?php echo $arrEspecesVulSimilaires[$cpt]['nom_francais']; ?>
+                    </a>
+                </li>
+                <?php } ?>
+            </ul>
         </div>
-
     </main>
 
     <footer>
