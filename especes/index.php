@@ -72,30 +72,20 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
         <div class="qc-container">
             <h1 class="qc-mb-4">Liste des espèces fauniques menacées ou vulnérables</h1>
             <section>
-                <?php
-                if (isset($_GET['statut_LEMV'])) {
-                    $statut = $_GET['statut_LEMV'];
-                } else {
-                    $statut = '';
-                }
-                $strIdEspece = isset($_GET['id_espece']) ? (int) $_GET['id_espece'] : 0;
-                $strStatut = $statut;
-                $strrequetestatut = "SELECT * FROM especes WHERE statut_LEMV = 'menacée'";
-                var_dump($strrequetestatut);
-                $resultatStatut = $pdoConnexion->query($strrequetestatut);
-                $sectionStatut = $resultatStatut->fetchAll(PDO::FETCH_ASSOC);
-                $resultatStatut->closeCursor();
-                for ($i = 0; $i < count($sectionStatut); $i++) {
-                    echo "<a href='index.php?id=" . $sectionStatut[$i]["id"] . "'>"
-                        . $sectionStatut[$i]["nom_francais"] . "</a><br>";
-                }
-                ?>
+                <a href="index.php">Toutes</a> |
+                <a href="index.php?statut_LEMV=menacée">Menacées</a> |
+                <a href="index.php?statut_LEMV=vulnérable">Vulnérables</a>
 
 
             </section>
             <?php
-            $strRequeteespece = "SELECT especes.id AS id_espece, nom_scientifique, nom_francais, statut_LEMV FROM especes ORDER BY nom_francais
-            LIMIT " . $enregistrementDepart . ', ' . $nbEspeceParPage;
+            $strRequeteespece = "SELECT especes.id AS id_espece, nom_scientifique, nom_francais, statut_LEMV FROM especes";
+
+            if (isset($_GET['statut_LEMV']) && $_GET['statut_LEMV'] != '' && ($_GET['statut_LEMV'] == 'menacée' || $_GET['statut_LEMV'] == 'vulnérable')) {
+                $strRequeteespece .= " WHERE statut_LEMV = '" . $_GET['statut_LEMV'] . "'";
+            }
+
+            $strRequeteespece .= " ORDER BY nom_francais LIMIT " . $enregistrementDepart . ', ' . $nbEspeceParPage;
             if ($strIdGroupe != 0) {
                 $strRequete2 = 'SELECT COUNT(*) AS nbEnregistrement FROM especes INNER JOIN groupes ON especes.id_groupe = groupes.id WHERE groupes.id=' . $strIdGroupe;
             } else {
@@ -131,13 +121,25 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
                 <?php }
             if ($nbPages > 1) {
                 for ($cpt = 0; $cpt < $nbPages; $cpt++) { ?>
-                    <a href='index.php?id_page=<?php echo ($cpt); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'><?php echo ($cpt + 1); ?></a>
-                <?php }
-            }
+                    <?php if (isset($_GET['statut_LEMV']) && $_GET['statut_LEMV'] != '' && ($_GET['statut_LEMV'] == 'menacée' || $_GET['statut_LEMV'] == 'vulnérable')) { ?>
+                        <a href='index.php?id_page=<?php echo ($cpt); ?>&id_groupe=<?php echo ($strIdGroupe); ?>&statut_LEMV=<?php echo ($_GET['statut_LEMV']); ?>'><?php echo ($cpt + 1); ?></a>
+                    <?php } else { ?>
+                        <a href='index.php?id_page=<?php echo ($cpt); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'><?php echo ($cpt + 1); ?></a>
+                    <?php }
+                    ?>
+                <?php } ?>
 
-            if ($strIdPage < $nbPages - 1) { ?>
-                <a href='index.php?id_page=<?php echo ($strIdPage + 1); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'>Page suivante</a>
+
+                <?php if ($strIdPage < $nbPages - 1) { ?>
+                    <?php if (isset($_GET['statut_LEMV']) && $_GET['statut_LEMV'] != '' && ($_GET['statut_LEMV'] == 'menacée' || $_GET['statut_LEMV'] == 'vulnérable')) { ?>
+                        <a href='index.php?id_page=<?php echo ($strIdPage + 1); ?>&id_groupe=<?php echo ($strIdGroupe); ?>&statut_LEMV=<?php echo ($_GET['statut_LEMV']); ?>'>Page suivante</a>
+                    <?php } else { ?>
+                        <a href='index.php?id_page=<?php echo ($strIdPage + 1); ?>&id_groupe=<?php echo ($strIdGroupe); ?>'>Page suivante</a>
+                    <?php } ?>
+                <?php } ?>
             <?php } ?>
+
+
         </div>
 
         <p class="qc-pagination__info"> Page <?php echo " " . ($strIdPage + 1); ?> sur <?php echo ($nbPages); ?></p>
