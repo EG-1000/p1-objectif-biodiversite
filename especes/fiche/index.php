@@ -1,6 +1,6 @@
-<?php 
+<?php
 $niveau = "../../";
-include($niveau . "inc/config.inc.php");
+include($niveau . "inc/confinge.inc.php");
 
 if (isset($_GET['id'])) {
     $strIdEspece = max(0, (int) $_GET['id']);
@@ -13,14 +13,14 @@ $strRequete = 'SELECT nom_francais, nom_scientifique, autres_noms_francais, stat
                FROM especes
                INNER JOIN groupes ON especes.groupe_id= groupes.id
                INNER JOIN images ON especes.id= images.espece_id
-               WHERE especes.id = '. $strIdEspece . ' AND `est_aire-repartition` = 0';
+               WHERE especes.id = ' . $strIdEspece . ' AND `est_aire-repartition` = 0';
 
 $pdosResultat = $pdoConnexion->query($strRequete);
 
 $arrEspeces = array();
 $ligne = $pdosResultat->fetch();
 for ($cpt = 0; $cpt < $pdosResultat->rowCount(); $cpt++) {
-    $arrEspeces['nom_francais']= $ligne['nom_francais'];
+    $arrEspeces['nom_francais'] = $ligne['nom_francais'];
     $arrEspeces['nom_scientifique'] = $ligne['nom_scientifique'];
     $arrEspeces['autres_noms_francais']  = $ligne['autres_noms_francais'];
     $arrEspeces['statut_LEMV']  = $ligne['statut_LEMV'];
@@ -81,92 +81,80 @@ $pdosResultatSim->closeCursor();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Démo trousse SDG — Cégep</title>
 
     <!-- Feuille de styles de la trousse (design gouvernemental). -->
-    <link rel="stylesheet" href="<?php echo $niveau ?>assets/sdg/dist/css/qc-sdg.min.css">
+    <link rel="stylesheet" href="<?php echo $niveau . "Assets/sdg/dist/css/qc-sdg.min.css" ?>">
 
     <!-- Script des composants web de la trousse. -->
-    <script defer src="<?php echo $niveau ?>assets/sdg/dist/js/qc-sdg.min.js"></script>
+    <script defer src="<?php echo $niveau . "Assets/sdg/dist/js/qc-sdg.min.js" ?>"></script>
 </head>
+
 <body>
-<header>
-    <qc-piv-header
+    <header>
+        <qc-piv-header
             title-text="Démonstration — Système de design gouvernemental"
             alt-logo="Signature du gouvernement du Québec.">
-    </qc-piv-header>
-</header>
+        </qc-piv-header>
+    </header>
 
-<main id="main">
-    <div class="qc-container"> 
-        <h1 class="qc-h1"><span class="qc-subhead ">Fiche</span><?php echo $arrEspeces['nom_francais']; ?></h1>
-        <figure>
-            <img alt="Image de l'espèce <?php echo $arrEspeces['nom_francais']; ?>"
-                        src="<?php echo $niveau ?>assets/images/<?php echo $arrEspeces['nom_image']; ?>">
+    <main id="main">
+        <div class="qc-container">
+            <h1 class="qc-h1"><span class="qc-subhead ">Fiche</span><?php echo $arrEspeces['nom_francais']; ?></h1>
+            <figure>
+                <img alt="Image de l'espèce <?php echo $arrEspeces['nom_francais']; ?>"
+                    src="<?php echo $niveau ?>assets/images/<?php echo $arrEspeces['nom_image']; ?>">
 
-        <figcaption>
-            <p><?php echo $arrEspeces['nom_francais']; ?><br>
-            <em><?php echo $arrEspeces['bas-de-vignette']; ?></em>
-            </p>
-        </figcaption>
-        </figure>
-        <p>Nom<br><?php echo $arrEspeces['nom_francais']; ?></p>
-        <p>Nom scientifique<br><?php echo $arrEspeces['nom_scientifique']; ?></p>
-        <p>Autres noms français<br><?php echo $arrEspeces['autres_noms_francais']; ?></p>
-        <p>Statut<br><?php echo $arrEspeces['statut_LEMV']; ?></p>
-        <p>Groupe<br><?php echo $arrEspeces['nom_groupe']; ?></p>
-        <h2>Répartition</h2>
-        <p><?php echo $arrEspeces['repartition']; ?></p>
-        <h2>Habitat</h2>
-        <p><?php echo $arrEspeces['habitat']; ?></p>
-        <h2>État de la situation</h2>
-        <p><?php echo $arrEspeces['etat_situation']; ?></p>
-        <h2>Alimentation</h2>
-        <p><?php echo $arrEspeces['alimentation']; ?></p>
-        <h2>Reproduction</h2>
-        <p><?php echo $arrEspeces['reproduction']; ?></p>
-        <h2>Comportement</h2>
-        <p><?php echo $arrEspeces['comportement']; ?></p>
-        <h2>Menaces</h2>
-        <p><?php echo $arrEspeces['menaces']; ?></p>
-        <h2>Espèces du même groupe</h2>
-        <h3>Menacé</h3>
-        <ul>
-            <?php for ($cpt = 0; $cpt < count($arrEspecesMenaceeSimilaires); $cpt++) { ?>
-            <li>
-                <a href="index.php?id=<?php echo $arrEspecesMenaceeSimilaires[$cpt]['id']; ?>">
-                <?php echo $arrEspecesMenaceeSimilaires[$cpt]['nom_francais']; ?>
-                </a>
-            </li>
-            <?php } ?>
-        </ul>
+                <figcaption>
+                    <p><?php echo $arrEspeces['nom_francais']; ?><br>
+                        <em><?php echo $arrEspeces['bas-de-vignette']; ?></em>
+                    </p>
+                </figcaption>
+            </figure>
+            <p>Nom<br><?php echo $arrEspeces['nom_francais']; ?></p>
+            <p>Nom scientifique<br><?php echo $arrEspeces['nom_scientifique']; ?></p>
+            <p>Autres noms français<br><?php echo $arrEspeces['autres_noms_francais']; ?></p>
+            <p>Statut<br><?php echo $arrEspeces['statut_LEMV']; ?></p>
+            <p>Groupe<br><?php echo $arrEspeces['nom_groupe']; ?></p>
+            <h2>Répartition</h2>
+            <p><?php echo $arrEspeces['repartition']; ?></p>
+            <h2>Habitat</h2>
+            <p><?php echo $arrEspeces['habitat']; ?></p>
+            <h2>État de la situation</h2>
+            <p><?php echo $arrEspeces['etat_situation']; ?></p>
+            <h2>Alimentation</h2>
+            <p><?php echo $arrEspeces['alimentation']; ?></p>
+            <h2>Reproduction</h2>
+            <p><?php echo $arrEspeces['reproduction']; ?></p>
+            <h2>Comportement</h2>
+            <p><?php echo $arrEspeces['comportement']; ?></p>
+            <h2>Menaces</h2>
+            <p><?php echo $arrEspeces['menaces']; ?></p>
+            <h2>Espèces du même groupe</h2>
+            <h3>Menacé</h3>
 
-        <h3>Vulnérables</h3>
-        <ul>
-            <?php for ($cpt = 0; $cpt < count($arrEspecesVulSimilaires); $cpt++) { ?>
-            <li>
-                <a href="index.php?id=<?php echo $arrEspecesVulSimilaires[$cpt]['id']; ?>">
-                <?php echo $arrEspecesVulSimilaires[$cpt]['nom_francais']; ?>
-                </a>
-            </li>
-            <?php } ?>
-        </ul>
-    </div>
-    
-</main>
 
-<footer>
-    <qc-piv-footer>
-        <nav aria-label="Navigation du pied de page">
-            <ul>
-                <li><a href="<?php echo $niveau ?>index.php">Accueil</a></li>
-                <li><a href="https://design.quebec.ca" target="_blank" rel="noopener">Système de design gouvernemental</a></li>
-            </ul>
-        </nav>
-    </qc-piv-footer>
-</footer>
+
+            <h3>Vulnérables</h3>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <qc-piv-footer>
+            <nav aria-label="Navigation du pied de page">
+                <ul>
+                    <li><a href="<?php echo $niveau ?>index.php">Accueil</a></li>
+                    <li><a href="https://design.quebec.ca" target="_blank" rel="noopener">Système de design gouvernemental</a></li>
+                </ul>
+            </nav>
+        </qc-piv-footer>
+    </footer>
 </body>
+
 </html>
