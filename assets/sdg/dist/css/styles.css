@@ -35,7 +35,7 @@
 
 .nav-menu__link:hover {
     color: #8e9da9;
-    display: inlin;
+    display: inline;
     content: "";
     border-bottom: 2px solid transparent;
     position: relative;
@@ -66,7 +66,6 @@
 }
 
 .qc-pagination__info {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+    text-align: center;
+    margin: 20px 0;
 }

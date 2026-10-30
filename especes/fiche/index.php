@@ -1,6 +1,6 @@
 <?php
 $niveau = "../../";
-include($niveau . "inc/config.inc.php");
+include($niveau . "inc/confinge.inc.php");
 
 if (isset($_GET['id'])) {
     $strIdEspece = max(0, (int) $_GET['id']);
@@ -103,10 +103,10 @@ $pdosResultatSim->closeCursor();
     <title>Démo trousse SDG — Cégep</title>
 
     <!-- Feuille de styles de la trousse (design gouvernemental). -->
-    <link rel="stylesheet" href="<?php echo $niveau . "Assets/sdg/dist/css/qc-sdg.min.css" ?>">
+    <link rel="stylesheet" href="<?php echo $niveau . "assets/sdg/dist/css/qc-sdg.min.css" ?>">
 
     <!-- Script des composants web de la trousse. -->
-    <script defer src="<?php echo $niveau . "Assets/sdg/dist/js/qc-sdg.min.js" ?>"></script>
+    <script defer src="<?php echo $niveau . "assets/sdg/dist/js/qc-sdg.min.js" ?>"></script>
 </head>
 
 <body>
@@ -163,21 +163,21 @@ $pdosResultatSim->closeCursor();
             <h3>Menacé</h3>
             <ul>
                 <?php for ($cpt = 0; $cpt < count($arrEspecesMenaceeSimilaires); $cpt++) { ?>
-                <li>
-                    <a href="index.php?id=<?php echo $arrEspecesMenaceeSimilaires[$cpt]['id']; ?>">
-                    <?php echo $arrEspecesMenaceeSimilaires[$cpt]['nom_francais']; ?>
-                    </a>
-                </li>
+                    <li>
+                        <a href="index.php?id=<?php echo $arrEspecesMenaceeSimilaires[$cpt]['id']; ?>">
+                            <?php echo $arrEspecesMenaceeSimilaires[$cpt]['nom_francais']; ?>
+                        </a>
+                    </li>
                 <?php } ?>
             </ul>
             <h3>Vulnérables</h3>
             <ul>
                 <?php for ($cpt = 0; $cpt < count($arrEspecesVulSimilaires); $cpt++) { ?>
-                <li>
-                    <a href="index.php?id=<?php echo $arrEspecesVulSimilaires[$cpt]['id']; ?>">
-                    <?php echo $arrEspecesVulSimilaires[$cpt]['nom_francais']; ?>
-                    </a>
-                </li>
+                    <li>
+                        <a href="index.php?id=<?php echo $arrEspecesVulSimilaires[$cpt]['id']; ?>">
+                            <?php echo $arrEspecesVulSimilaires[$cpt]['nom_francais']; ?>
+                        </a>
+                    </li>
                 <?php } ?>
             </ul>
         </div>

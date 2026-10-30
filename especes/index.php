@@ -5,7 +5,7 @@
  * 
  **/
 $niveau = "../";
-include($niveau . "inc/config.inc.php");
+include($niveau . "inc/confinge.inc.php");
 
 if (isset($_GET['id_page'])) {
     $strIdPage = max(0, (int) $_GET['id_page']);
@@ -32,7 +32,7 @@ if (isset($_GET['id_groupe'])) {
     <title>Démo trousse SDG — Cégep</title>
 
     <!-- Feuille de styles de la trousse (design gouvernemental). -->
-    <link rel="stylesheet" href="<?php echo $niveau . "Assets/sdg/dist/css/styles.css" ?>">
+    <link rel="stylesheet" href="<?php echo $niveau . "assets/sdg/dist/css/styles.css" ?>">
 
     <!-- Script des composants web de la trousse. -->
     <script defer src="<?php echo $niveau ?>assets/sdg/dist/js/qc-sdg.min.js"></script>
@@ -105,7 +105,7 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
                 foreach ($ligneGroupe as $groupe) {
                     $strGroupe = $strGroupe . $groupe["nom_groupe"] . "," . " ";
                 }
-                echo "<li>" . "<h3> <a href='fiche/index.php?id=" . $espece["id_espece"] . "'>"
+                echo "<p>" . $espece["statut_LEMV"] . "</p>" . "<li>" . "<h3> <a href='fiche/index.php?id=" . $espece["id_espece"] . "'>"
                     . $espece["nom_francais"] . "</a></h3>" . " "
                     . "</li>" . "<p>Espece :" . $strGroupe . "</p>";
             }
@@ -142,7 +142,7 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
 
         </div>
 
-        <p class="qc-pagination__info"> Page <?php echo " " . ($strIdPage + 1); ?> sur <?php echo ($nbPages); ?></p>
+        <div class="qc-pagination__info"> Page <?php echo " " . ($strIdPage + 1); ?> sur <?php echo ($nbPages); ?></div>
 
     </main>
 
