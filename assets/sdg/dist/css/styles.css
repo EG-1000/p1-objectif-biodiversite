@@ -1,11 +1,11 @@
 @charset "UTF-8";
-@import url('qc-sdg-design-tokens-rfz100.min.css');
-@import url('qc-sdg-design-tokens.min.css');
-@import url('qc-sdg-no-grid-rfz100.min.css');
-@import url('qc-sdg-rfz100.min.css');
-@import url('qc-sdg.min.css');
+@import url("qc-sdg-design-tokens-rfz100.min.css");
+@import url("qc-sdg-design-tokens.min.css");
+@import url("qc-sdg-no-grid-rfz100.min.css");
+@import url("qc-sdg-rfz100.min.css");
+@import url("qc-sdg.min.css");
 
-.nav-menu {
+/* .nav-menu {
     background-color: #19406c;
     width: 100%;
     height: 72px;
@@ -48,7 +48,7 @@
 
 .nav-menu__link:focus {
     outline: 2px solid #4A98d9;
-}
+} */
 
 /* .nav-menu__link:active {
     font-weight: bold;
@@ -59,13 +59,13 @@
     left: 8px;
 } */
 .qc-pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
 }
 
 .qc-pagination__info {
-    text-align: center;
-    margin: 20px 0;
+  text-align: center;
+  margin: 20px 0;
 }
