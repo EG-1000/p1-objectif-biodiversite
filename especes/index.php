@@ -36,6 +36,7 @@ if (isset($_GET['id_groupe'])) {
 
     <!-- Script des composants web de la trousse. -->
     <script defer src="<?php echo $niveau ?>assets/sdg/dist/js/qc-sdg.min.js"></script>
+    <script defer src="<?php echo $niveau ?>assets/sdg/dist/js/formulaire.js"></script>
 </head>
 <?php
 $nbEspeceParPage = 10; // Définir le nombre d'articles par page
@@ -78,19 +79,35 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
 
 
             </section>
+            <form method="get" action="index.php">
+                <?php if (isset($_GET['statut_LEMV']) && ($_GET['statut_LEMV'] == 'menacée' || $_GET['statut_LEMV'] == 'vulnérable')) { ?>
+                    <input type="hidden" name="statut_LEMV" value="<?php echo $_GET['statut_LEMV']; ?>">
+                <?php } ?>
+                <label>Espèce :</label>
+                <input type="radio" name="id_groupe" value="0" id="id_groupe_0" <?php echo $strIdGroupe == 0 ? 'checked' : ''; ?>> Toutes
+                <?php
+                $listeGroupes = $pdoConnexion->query("SELECT id, nom_groupe FROM groupes ORDER BY nom_groupe")->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($listeGroupes as $g) { ?>
+                    <input type="radio" name="id_groupe" value="<?php echo $g['id']; ?>" id="id_groupe_<?php echo $g['id']; ?>" <?php echo $strIdGroupe == $g['id'] ? 'checked' : ''; ?>> <?php echo htmlspecialchars($g['nom_groupe']); ?>
+                <?php } ?>
+                <noscript><input type="submit" value="Filtrer"></noscript>
+            </form>
             <?php
-            $strRequeteespece = "SELECT especes.id AS id_espece, nom_scientifique, nom_francais, statut_LEMV FROM especes";
-
-            if (isset($_GET['statut_LEMV']) && $_GET['statut_LEMV'] != '' && ($_GET['statut_LEMV'] == 'menacée' || $_GET['statut_LEMV'] == 'vulnérable')) {
-                $strRequeteespece .= " WHERE statut_LEMV = '" . $_GET['statut_LEMV'] . "'";
+            $arrWhere = [];
+            if (isset($_GET['statut_LEMV']) && ($_GET['statut_LEMV'] == 'menacée' || $_GET['statut_LEMV'] == 'vulnérable')) {
+                $arrWhere[] = "statut_LEMV = '" . $_GET['statut_LEMV'] . "'";
             }
-
-            $strRequeteespece .= " ORDER BY nom_francais LIMIT " . $enregistrementDepart . ', ' . $nbEspeceParPage;
             if ($strIdGroupe != 0) {
-                $strRequete2 = 'SELECT COUNT(*) AS nbEnregistrement FROM especes INNER JOIN groupes ON especes.id_groupe = groupes.id WHERE groupes.id=' . $strIdGroupe;
-            } else {
-                $strRequete2 = 'SELECT COUNT(*) AS nbEnregistrement FROM especes';
+                $arrWhere[] = "especes.groupe_id = " . $strIdGroupe;
             }
+            $strWhere = "";
+            if (count($arrWhere) > 0) {
+                $strWhere = " WHERE " . implode(" AND ", $arrWhere);
+            }
+
+            $strRequeteespece = "SELECT especes.id AS id_espece, nom_scientifique, nom_francais, statut_LEMV FROM especes" . $strWhere
+                . " ORDER BY nom_francais LIMIT " . $enregistrementDepart . ', ' . $nbEspeceParPage;
+            $strRequete2 = 'SELECT COUNT(*) AS nbEnregistrement FROM especes' . $strWhere;
             $resultat = $pdoConnexion->query($strRequeteespece);
             $section = $resultat->fetchAll(PDO::FETCH_ASSOC);
             $pdosResultat2 = $pdoConnexion->query($strRequete2);
