@@ -4,7 +4,7 @@ $niveau = '';
 include($niveau . "inc/config.inc.php");
 
 $strRequeteActualites = 'SELECT id, titre, auteur, date, texte, credit_photo
-               FROM actualites';
+                        FROM actualites';
 
 $pdosResultatActualites = $pdoConnexion->query($strRequeteActualites);
 
@@ -85,6 +85,7 @@ $arrActualites=array_slice($arrActualites,0, 3);
         </nav> -->
     </header>
     <main>
+        <div class="qc-container">
         <picture class="image">
             <source media="(max-width: 360px)"
                 srcset="assets/images/IMG_Tortue-Luth_LouisabelleGagnon.jpg">
@@ -95,7 +96,7 @@ $arrActualites=array_slice($arrActualites,0, 3);
         </picture>
         <h2>Actualités</h2>
         <?php for ($cpt = 0; $cpt < count($arrActualites); $cpt++) { ?>
-        <section>
+        <article>
             <figure>
                 <img alt="Image d'actualités de <?php echo $arrActualites[$cpt]['auteur']; ?>"
                     src="<?php echo $niveau ?>assets/images/photos-actualites/<?php echo $arrActualites[$cpt]['id'] . ".jpeg"; ?>">
@@ -106,16 +107,13 @@ $arrActualites=array_slice($arrActualites,0, 3);
                 </figcaption>
             </figure>
             <p><?php echo $arrActualites[$cpt]['date']; ?></p>
-            <header>
-                <h3><?php echo $arrActualites[$cpt]['titre']; ?></h3>
-            </header>
-            
+            <p style="font-weight:var(--qc-font-weight-content-bold);"><?php echo $arrActualites[$cpt]['titre']; ?></p>
             <p>
                 <?php echo $arrActualites[$cpt]['texte']; ?>
-                <a href="#">...</a>
+                <a href="#" aria-label="Lire la suite de l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">...</a>
             </p>
-            <a href="#">Lire l'article</a>
-        </section>
+            <a href="#" aria-label="Lire l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">Lire l'article</a>
+        </article>
         <?php } ?>
         <h2> Status de protection</h2>
         <p>Menacé : espèce, sous-espèce ou population dont la disparition est redoutée.</p>
@@ -126,20 +124,23 @@ $arrActualites=array_slice($arrActualites,0, 3);
         <div>
             <a href="especes/index.php?statut_LEMV=vulnérable" class="qc-button qc-secondary">Découvrir les espèces</a>
         </div>
-
+        </div>
     </main>
 
 
 
     <footer>
-        <h4>Gouvernement du Quebec</h4>
         <qc-piv-footer>
             <nav aria-label="Navigation du pied de page">
                 <ul>
-                    <li>Accessibilité</li>
-                    <li>Conditions d’utilisation</li>
-                    <li>Confidentialité</li>
-                    <li><a href="https://design.quebec.ca" target="_blank" rel="noopener">Système de design gouvernemental</a></li>
+                    <li>
+                        <a href="#">Accessibilité</a></li>
+                    <li>
+                        <a href="#">Conditions d’utilisation</a></li>
+                    <li>
+                        <a href="#">Confidentialité</a></li>
+                    <li>
+                        <a href="https://design.quebec.ca" target="_blank" rel="noopener">Système de design gouvernemental</a></li>
                 </ul>
             </nav>
         </qc-piv-footer>
