@@ -164,6 +164,36 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
     </main>
 
     <footer>
+        <div class="qc-footer">
+            <h4>Objectif Biodiversité Quebec</h4>
+            <p> Découvrir. Comprendre. Protéger </p>
+            <div class="qc-footer__nav-container">
+                <nav aria-label="Navigation du pied de page" class="qc-footer__nav1">
+                    <button class="qc-footer__nav1-toggle" aria-expanded="false" aria-controls="menu-nav__1">menu</button>
+                    <ul id="menu-nav__1" class="menu-nav__1">
+                        <li><a href="https://www.google.com/maps/place/675+Bd+Ren%C3%A9-L%C3%A9vesque+E,+Qu%C3%A9bec,+QC+G1R+5E9/@46.8080733,-71.2201551,17z/data=!3m1!4b1!4m6!3m5!1s0x4cb895d803657005:0xc07c977340c24317!8m2!3d46.8080733!4d-71.2175802!16zL20vMDhrbm45?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D">675 Bd René-Lévesque E, Québec, QC G1R 5E9</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Navigation du pied de page" class="qc-footer__nav2">
+                    <button class="qc-footer__nav2-toggle" aria-expanded="false" aria-controls="menu-nav__2">menu</button>
+                    <ul id="menu-nav__2" class="menu-nav__2">
+                        <li><a href="<?php echo $niveau ?>index.php">Accueil</a></li>
+                        <li><a href="<?php echo $niveau ?>index.php">À propos</a></li>
+                        <li><a href="index.php">Espèces</a></li>
+                        <li><a href="<?php echo $niveau ?>index.php">Contact</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Navigation du pied de page" class="qc-footer__nav3">
+                    <button class="qc-footer__nav3-toggle" aria-expanded="false" aria-controls="menu-nav__3">suivez-nous</button>
+                    <ul id="menu-nav__3" class="menu-nav__3">
+                        <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+                        <li><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                        <li><a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+                        <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                    </ul>
+                </nav>
+            </div> <!-- Close qc-footer__nav-container -->
+        </div>
         <qc-piv-footer>
             <nav aria-label="Navigation du pied de page">
                 <ul>
@@ -172,6 +202,7 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
                 </ul>
             </nav>
         </qc-piv-footer>
+
     </footer>
 </body>
 
