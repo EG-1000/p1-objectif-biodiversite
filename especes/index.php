@@ -5,7 +5,7 @@
  * 
  **/
 $niveau = "../";
-include($niveau . "inc/config.inc.php");
+include($niveau . "inc/confinge.inc.php");
 
 if (isset($_GET['id_page'])) {
     $strIdPage = max(0, (int) $_GET['id_page']);

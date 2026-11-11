@@ -1,6 +1,6 @@
 <?php
 $niveau = "../../";
-include($niveau . "inc/config.inc.php");
+include($niveau . "inc/confinge.inc.php");
 
 if (isset($_GET['id'])) {
     $strIdEspece = max(0, (int) $_GET['id']);
@@ -158,72 +158,74 @@ $arrEspecesVulSimilaires = array_slice($arrEspecesVulSimilaires, 0, 3);
     <main id="main">
         <div class="qc-container">
             <p class="fil-dariane"></p>
-                <a class="page precedente" href = "<?php echo $niveau; ?>index.php">Accueil </a> < <a class="page precedente" href="<?php echo $niveau; ?>especes/index.php"> Espèces </a> < <a class="page courante" href="#"> Fiche d’une espèce</a>
-            </p>
-            <h1 class="qc-h1"><?php echo $arrEspeces['nom_francais']; ?></h1>
-            <div class="apercu">
-                <figure>
-                    <img alt="Image de l'espèce <?php echo $arrEspeces['nom_francais']; ?>"
-                    src="<?php echo $niveau ?>assets/images/<?php echo $arrEspeces['nom_image']; ?>">
-                    <figcaption>
-                        <p><?php echo $arrEspeces['nom_francais']; ?><br>
-                        <em><?php echo $arrEspeces['bas-de-vignette']; ?></em>
+            <a class="page precedente" href="<?php echo $niveau; ?>index.php">Accueil </a>
+            < <a class="page precedente" href="<?php echo $niveau; ?>especes/index.php"> Espèces </a>
+                < <a class="page courante" href="#"> Fiche d’une espèce</a>
                     </p>
-                </figcaption>
-            </figure>
-            <div class="info">
-                <p><strong>Nom</strong><br><?php echo $arrEspeces['nom_francais']; ?></p>
-                <p><strong>Nom scientifique</strong><br><?php echo $arrEspeces['nom_scientifique']; ?></p>
-                <p><strong>Autres noms français</strong><br><?php echo $arrEspeces['autres_noms_francais']; ?></p>
-                <p><strong>Statut</strong><br><?php echo $arrEspeces['statut_LEMV']; ?></p>
-                <p><strong>Groupe</strong><br><?php echo $arrEspeces['nom_groupe']; ?></p>
-            </div>
-            </div>
-            <h2>Répartition</h2>
-            <p><?php echo $arrEspeces['repartition']; ?></p>
-            <figure>
-                <img alt="Carte de l’aire de répartition de la population de <?php echo $arrEspeces['nom_francais']; ?>"
-                    src="<?php echo $niveau ?>assets/images/<?php echo $arrCartes['nom_image']; ?>">
+                    <h1 class="qc-h1"><?php echo $arrEspeces['nom_francais']; ?></h1>
+                    <div class="apercu">
+                        <figure>
+                            <img alt="Image de l'espèce <?php echo $arrEspeces['nom_francais']; ?>"
+                                src="<?php echo $niveau ?>assets/images/<?php echo $arrEspeces['nom_image']; ?>">
+                            <figcaption>
+                                <p><?php echo $arrEspeces['nom_francais']; ?><br>
+                                    <em><?php echo $arrEspeces['bas-de-vignette']; ?></em>
+                                </p>
+                            </figcaption>
+                        </figure>
+                        <div class="info">
+                            <p><strong>Nom</strong><br><?php echo $arrEspeces['nom_francais']; ?></p>
+                            <p><strong>Nom scientifique</strong><br><?php echo $arrEspeces['nom_scientifique']; ?></p>
+                            <p><strong>Autres noms français</strong><br><?php echo $arrEspeces['autres_noms_francais']; ?></p>
+                            <p><strong>Statut</strong><br><?php echo $arrEspeces['statut_LEMV']; ?></p>
+                            <p><strong>Groupe</strong><br><?php echo $arrEspeces['nom_groupe']; ?></p>
+                        </div>
+                    </div>
+                    <h2>Répartition</h2>
+                    <p><?php echo $arrEspeces['repartition']; ?></p>
+                    <figure>
+                        <img alt="Carte de l’aire de répartition de la population de <?php echo $arrEspeces['nom_francais']; ?>"
+                            src="<?php echo $niveau ?>assets/images/<?php echo $arrCartes['nom_image']; ?>">
 
-                <figcaption>
-                    <p><?php echo $arrEspeces['nom_francais']; ?><br>
-                        <em><?php echo $arrCartes['bas-de-vignette']; ?></em>
-                    </p>
-                </figcaption>
-            </figure>
-            <h2>Habitat</h2>
-            <p><?php echo $arrEspeces['habitat']; ?></p>
-            <h2>État de la situation</h2>
-            <p><?php echo $arrEspeces['etat_situation']; ?></p>
-            <h2>Alimentation</h2>
-            <p><?php echo $arrEspeces['alimentation']; ?></p>
-            <h2>Reproduction</h2>
-            <p><?php echo $arrEspeces['reproduction']; ?></p>
-            <h2>Comportement</h2>
-            <p><?php echo $arrEspeces['comportement']; ?></p>
-            <h2>Menaces</h2>
-            <p><?php echo $arrEspeces['menaces']; ?></p>
-            <h2>Espèces du même groupe</h2>
-            <h3>Menacé</h3>
-            <ul>
-                <?php for ($cpt = 0; $cpt < count($arrEspecesMenaceeSimilaires); $cpt++) { ?>
-                    <li>
-                        <a href="index.php?id=<?php echo $arrEspecesMenaceeSimilaires[$cpt]['id']; ?>">
-                            <?php echo $arrEspecesMenaceeSimilaires[$cpt]['nom_francais']; ?>
-                        </a>
-                    </li>
-                <?php } ?>
-            </ul>
-            <h3>Vulnérables</h3>
-            <ul>
-                <?php for ($cpt = 0; $cpt < count($arrEspecesVulSimilaires); $cpt++) { ?>
-                    <li>
-                        <a href="index.php?id=<?php echo $arrEspecesVulSimilaires[$cpt]['id']; ?>">
-                            <?php echo $arrEspecesVulSimilaires[$cpt]['nom_francais']; ?>
-                        </a>
-                    </li>
-                <?php } ?>
-            </ul>
+                        <figcaption>
+                            <p><?php echo $arrEspeces['nom_francais']; ?><br>
+                                <em><?php echo $arrCartes['bas-de-vignette']; ?></em>
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <h2>Habitat</h2>
+                    <p><?php echo $arrEspeces['habitat']; ?></p>
+                    <h2>État de la situation</h2>
+                    <p><?php echo $arrEspeces['etat_situation']; ?></p>
+                    <h2>Alimentation</h2>
+                    <p><?php echo $arrEspeces['alimentation']; ?></p>
+                    <h2>Reproduction</h2>
+                    <p><?php echo $arrEspeces['reproduction']; ?></p>
+                    <h2>Comportement</h2>
+                    <p><?php echo $arrEspeces['comportement']; ?></p>
+                    <h2>Menaces</h2>
+                    <p><?php echo $arrEspeces['menaces']; ?></p>
+                    <h2>Espèces du même groupe</h2>
+                    <h3>Menacé</h3>
+                    <ul>
+                        <?php for ($cpt = 0; $cpt < count($arrEspecesMenaceeSimilaires); $cpt++) { ?>
+                            <li>
+                                <a href="index.php?id=<?php echo $arrEspecesMenaceeSimilaires[$cpt]['id']; ?>">
+                                    <?php echo $arrEspecesMenaceeSimilaires[$cpt]['nom_francais']; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                    <h3>Vulnérables</h3>
+                    <ul>
+                        <?php for ($cpt = 0; $cpt < count($arrEspecesVulSimilaires); $cpt++) { ?>
+                            <li>
+                                <a href="index.php?id=<?php echo $arrEspecesVulSimilaires[$cpt]['id']; ?>">
+                                    <?php echo $arrEspecesVulSimilaires[$cpt]['nom_francais']; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>
         </div>
     </main>
 
