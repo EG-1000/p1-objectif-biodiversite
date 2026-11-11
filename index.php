@@ -74,7 +74,7 @@ $arrActualites = array_slice($arrActualites, 0, 3);
         <nav class="nav-menu">
             <ul class="nav-menu__list">
                 <li class="nav-menu__item">
-                    <a class="nav-menu__link" href="<?php echo $niveau; ?>index.php">Accueil</a>
+                    <a class="nav-menu__link active" href="<?php echo $niveau; ?>index.php">Accueil</a>
                 </li>
                 <li class="nav-menu__item">
                     <a class="nav-menu__link" href="<?php echo $niveau; ?>especes/index.php">Espèces</a>
