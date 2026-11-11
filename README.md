@@ -1,5 +1,6 @@
 # P1 - Objectif BioDiversité (2026)
 
+
 ## Sommaire
 
 - [P1 - Objectif BioDiversité (2026)](#p1---objectif-biodiversité-2026)
@@ -123,7 +124,7 @@ aucun.
 ### Quels principaux apprentissages retenez-vous du projet Objectif Biodiversité Québec? 
 ### Développement continu
 Pour mes prochains projets, je souhaite approfondir :
-mes connaisances en progammation. 
+mes connaisances en progammation. et intégration! 
 
 ## Commentaires sur le projet
 bon projet pour reviser le php qu'on apprend depuis le debut.
