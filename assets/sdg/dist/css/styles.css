@@ -221,40 +221,9 @@ main {
 
 }
 
-.display-especes {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
 
-.item {
-    list-style: none;
-    margin-top: -4rem;
 
-}
 
-.qc-Menacée {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25em 0.5em;
-    border-radius: 0.50em;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    background-color: #ff4d4d;
-    color: white;
-}
-
-.qc-Vulnérable {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25em 0.5em;
-    border-radius: 0.50em;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    background-color: #ffcc00;
-    color: black;
-}
 
 
 .footer__link--1 {
