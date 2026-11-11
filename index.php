@@ -1,7 +1,7 @@
 <?php
 $niveau = '';
 
-include($niveau . "inc/confinge.inc.php");
+include($niveau . "inc/config.inc.php");
 
 $strRequeteActualites = 'SELECT id, titre, auteur, date, texte, credit_photo
                         FROM actualites';
