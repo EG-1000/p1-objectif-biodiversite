@@ -1,7 +1,7 @@
 <?php
 $niveau = '';
 
-include($niveau . "inc/confinge.inc.php");
+include($niveau . "inc/config.inc.php");
 
 $strRequeteActualites = 'SELECT id, titre, auteur, date, texte, credit_photo
                         FROM actualites';
@@ -24,7 +24,7 @@ for ($cpt = 0; $ligne = $pdosResultatActualites->fetch(); $cpt++) {
     if (count($arrTexte) > $limiteTexte) {
         array_splice($arrTexte, $limiteTexte);
     }
-        $arrActualites[$cpt]["texte"] = implode(" ", $arrTexte);
+    $arrActualites[$cpt]["texte"] = implode(" ", $arrTexte);
     
 }
 $pdosResultatActualites->closeCursor();
@@ -76,7 +76,7 @@ $arrActualites = array_slice($arrActualites, 0, 3);
                 <li class="nav-menu__item">
                     <a class="nav-menu__link" href="<?php echo $niveau; ?>index.php">Accueil</a>
                 </li>
-                <li class="nav-menu__item active">
+                <li class="nav-menu__item">
                     <a class="nav-menu__link" href="<?php echo $niveau; ?>especes/index.php">Espèces</a>
                 </li>
                 <li class="nav-menu__item">
@@ -89,7 +89,6 @@ $arrActualites = array_slice($arrActualites, 0, 3);
         </nav>
     </header>
     <main>
-        
         
         <figure class="image-hero">
             <img alt="Tortue Luth LouisabelleGagnon"
@@ -109,13 +108,13 @@ $arrActualites = array_slice($arrActualites, 0, 3);
                     src="<?php echo $niveau ?>assets/images/photos-actualites/<?php echo $arrActualites[$cpt]['id'] . ".jpeg"; ?>">
                 
             </figure>
-            <p><?php echo $arrActualites[$cpt]['date']; ?></p>
-            <p style="font-weight:var(--qc-font-weight-content-bold);"><?php echo $arrActualites[$cpt]['titre']; ?></p>
+            <p class="date" ><?php echo $arrActualites[$cpt]['date']; ?></p>
+            <p class="titre-actu" style="font-weight:var(--qc-font-weight-content-bold);"><?php echo $arrActualites[$cpt]['titre']; ?></p>
             <p>
                 <?php echo $arrActualites[$cpt]['texte']; ?>
                 <a href="#" aria-label="Lire la suite de l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">...</a>
             </p>
-            <a class="qc-font-size-md" href="#" aria-label="Lire l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">Lire l'article</a>
+            <a class="lien" href="#" aria-label="Lire l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">Lire l'article</a>
         </article>
         <?php } ?>
     </div>
@@ -159,7 +158,7 @@ $arrActualites = array_slice($arrActualites, 0, 3);
                     <ul class="menu-nav" id="menu-nav__2">
                         <li class="menu-nav__item"><a href="<?php echo $niveau ?>index.php">Accueil</a></li>
                         <li class="menu-nav__item"><a href="<?php echo $niveau ?>index.php">À propos</a></li>
-                        <li class="menu-nav__item"><a href="index.php">Espèces</a></li>
+                        <li class="menu-nav__item"><a href="<?php echo $niveau ?>especes/index.php">Espèces</a></li>
                         <li class="menu-nav__item"><a href="<?php echo $niveau ?>index.php">Contact</a></li>
                     </ul>
                 </nav>

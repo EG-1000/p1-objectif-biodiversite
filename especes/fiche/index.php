@@ -1,6 +1,6 @@
 <?php
 $niveau = "../../";
-include($niveau . "inc/confinge.inc.php");
+include($niveau . "inc/config.inc.php");
 
 if (isset($_GET['id'])) {
     $strIdEspece = max(0, (int) $_GET['id']);
@@ -75,6 +75,8 @@ for ($cpt = 0; $cpt < $pdosResultatSim->rowCount(); $cpt++) {
     $ligneEspecesSim = $pdosResultatSim->fetch();
 }
 $pdosResultatSim->closeCursor();
+shuffle($arrEspecesMenaceeSimilaires);
+$arrEspecesMenaceeSimilaires = array_slice($arrEspecesMenaceeSimilaires, 0, 3);
 
 
 $strRequeteVulSimilaires = 'SELECT DISTINCT especes.id, especes.nom_francais
@@ -93,6 +95,8 @@ for ($cpt = 0; $cpt < $pdosResultatSim->rowCount(); $cpt++) {
     $ligneEspecesSim = $pdosResultatSim->fetch();
 }
 $pdosResultatSim->closeCursor();
+shuffle($arrEspecesVulSimilaires);
+$arrEspecesVulSimilaires = array_slice($arrEspecesVulSimilaires, 0, 3);
 
 ?>
 <!DOCTYPE html>
@@ -153,6 +157,9 @@ $pdosResultatSim->closeCursor();
 
     <main id="main">
         <div class="qc-container">
+            <p class="fil-dariane"></p>
+                <a class="page precedente" href = "<?php echo $niveau; ?>index.php">Accueil </a> < <a class="page precedente" href="<?php echo $niveau; ?>especes/index.php"> Espèces </a> < <a class="page courante" href="#"> Fiche d’une espèce</a>
+            </p>
             <h1 class="qc-h1"><?php echo $arrEspeces['nom_francais']; ?></h1>
             <div class="apercu">
                 <figure>
@@ -244,10 +251,10 @@ $pdosResultatSim->closeCursor();
                         <h5>menu</h5>
                     </button>
                     <ul class="menu-nav" id="menu-nav__2">
-                        <li class="menu-nav__item"><a href="<?php echo $niveau . $niveau ?>index.php">Accueil</a></li>
-                        <li class="menu-nav__item"><a href="<?php echo $niveau . $niveau ?>index.php">À propos</a></li>
-                        <li class="menu-nav__item"><a href="index.php">Espèces</a></li>
-                        <li class="menu-nav__item"><a href="<?php echo $niveau . $niveau ?>index.php">Contact</a></li>
+                        <li class="menu-nav__item"><a href="<?php echo $niveau ?>index.php">Accueil</a></li>
+                        <li class="menu-nav__item"><a href="<?php echo $niveau ?>index.php">À propos</a></li>
+                        <li class="menu-nav__item"><a href="<?php echo $niveau ?>especes/index.php">Espèces</a></li>
+                        <li class="menu-nav__item"><a href="<?php echo $niveau ?>index.php">Contact</a></li>
                     </ul>
                 </nav>
                 <nav aria-label="Navigation du pied de page" class="qc-footer__nav3">
