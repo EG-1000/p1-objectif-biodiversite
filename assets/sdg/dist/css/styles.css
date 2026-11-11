@@ -127,7 +127,7 @@ main {
 }
 
 .footer__link--1:visited {
-    color: white;
+
     text-decoration: none;
 }
 
@@ -238,7 +238,7 @@ main {
     display: inline-flex;
     align-items: center;
     padding: 0.25em 0.5em;
-    border-radius: 0.25em;
+    border-radius: 0.50em;
     font-size: 0.875rem;
     line-height: 1.25rem;
     background-color: #ff4d4d;
@@ -249,7 +249,7 @@ main {
     display: inline-flex;
     align-items: center;
     padding: 0.25em 0.5em;
-    border-radius: 0.25em;
+    border-radius: 0.50em;
     font-size: 0.875rem;
     line-height: 1.25rem;
     background-color: #ffcc00;
