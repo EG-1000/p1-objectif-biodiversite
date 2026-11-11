@@ -77,6 +77,8 @@ La mise en ligne sur timunix
 - utilisation du Html pour l'affichage
 
 ### Développement continu
+Pour mes prochains projets, je souhaite approfondir :
+Je veux essayer d'aller plus loin avec la mise en page et de proposer des maquettes avec un design plus pensé.
 
 ## Commentaires sur le projet
 bon projet pour reviser le php qu'on apprend depuis le debut.
