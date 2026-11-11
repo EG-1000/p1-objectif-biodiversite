@@ -62,7 +62,7 @@ ce projet vise, d'une part, à améliorer le site déjà présent sur le classem
 - sql
 - phpMyAdmin
 ### Utilisation de l'IA 
-Je l'ai utilisé pour me rappeler de quelques lignes de code et leurs fonctionnalitées, par example: Quel est le rôle de "position: absolute et relative"
+Je l'ai utilisé pour me rappeler de quelques lignes de code et leurs fonctionnalitées, par example: Quel est le rôle de "position: absolute et relative".
 ## Rapport de tests
 
 ### Les améliorations possibles
