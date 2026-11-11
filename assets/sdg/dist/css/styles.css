@@ -93,7 +93,37 @@
     text-decoration: underline;
 }
 
+.qc-section-2 {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    width: 100%;
+}
 
+.qc-section-2-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-self: flex-start;
+    max-width: 300px;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-left: 20px;
+}
+
+.qc-section-2-form-group {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .qc-section-2 {
+        flex-direction: row;
+        align-items: center;
+        gap: 5rem;
+    }
+}
 
 .menu-nav {
     list-style: none;
@@ -101,20 +131,74 @@
     padding: 0;
 }
 
-.qc-lozenge {
-    display: inline-block;
+.menu-nav__item {
+    margin: 0.5rem 0;
+    text-align: justify;
+}
+
+.section_espece {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+
+}
+
+.display-especes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.item {
+    list-style: none;
+    margin-top: -4rem;
+
+}
+
+.qc-Menacée {
+    display: inline-flex;
+    align-items: center;
     padding: 0.25em 0.5em;
     border-radius: 0.25em;
     font-size: 0.875rem;
     line-height: 1.25rem;
-}
-
-.qc-lozenge.qc-Menacée {
     background-color: #ff4d4d;
     color: white;
 }
 
-.qc-lozenge.qc-Vulnérable {
+.qc-Vulnérable {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     background-color: #ffcc00;
     color: black;
+}
+
+.footer__link--1 {
+    color: white;
+    text-decoration: none;
+    width: 50px;
+}
+
+.footer__link--1:hover {
+    text-decoration: underline;
+}
+
+
+.qc-footer__brand {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-self: flex-start;
+    align-self: flex-start;
 }

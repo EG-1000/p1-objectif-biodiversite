@@ -695,10 +695,9 @@ h3,
 .qc-heading-lg {
     font-family: var(--qc-font-family-header);
     font-size: var(--qc-font-size-h3);
-    line-height: var(--qc-line-height-h3);
+
     font-weight: var(--qc-font-weight-header-bold);
-    max-inline-size: var(--qc-max-content-width);
-    margin-top: var(--qc-spacer-h3-mt);
+
     margin-bottom: var(--qc-spacer-h3-mb)
 }
 
