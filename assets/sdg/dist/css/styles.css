@@ -5,59 +5,8 @@
 @import url("qc-sdg-rfz100.min.css");
 @import url("qc-sdg.min.css");
 
-/* .nav-menu {
-    background-color: #19406c;
-    width: 100%;
-    height: 72px;
-}
+/* Custom navigation menu styles */
 
-.nav-menu__list {
-    color: white;
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-
-.nav-menu__link {
-    text-decoration: none;
-    font-weight: semibold;
-    color: #ffffff;
-    background-color: #19406c;
-    padding: 0 22px;
-    height: 72px;
-    font-size: 18px;
-    line-height: 28px;
-
-}
-
-.nav-menu__link:hover {
-    color: #8e9da9;
-    display: inline;
-    content: "";
-    border-bottom: 2px solid transparent;
-    position: relative;
-    border-color: #dae6f0;
-    width: calc(100% - 16px);
-    height: 4px;
-    bottom: 0;
-    left: 8px;
-}
-
-.nav-menu__link:focus {
-    outline: 2px solid #4A98d9;
-} */
-
-/* .nav-menu__link:active {
-    font-weight: bold;
-    background-color: #dae6f0;
-    width: calc(100% - 16px);
-    height: 4px;
-    bottom: 0;
-    left: 8px;
-} */
 .qc-pagination {
     display: flex;
     justify-content: center;
@@ -75,21 +24,19 @@
     color: white;
     padding: 2rem 0;
     text-align: center;
+    list-style: none;
 }
 
 .qc-footer__nav-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 2rem;
     flex-wrap: wrap;
+    list-style: none;
+
 }
 
-.qc-footer__nav1,
-.qc-footer__nav2,
-.qc-footer__nav3 {
-    list-style: none;
-    padding: 0;
-}
+
 
 .qc-footer__nav1-toggle,
 .qc-footer__nav2-toggle,
@@ -119,12 +66,7 @@
     text-decoration: underline;
 }
 
-.qc-footer__nav1-toggle:disabled,
-.qc-footer__nav2-toggle:disabled,
-.qc-footer__nav3-toggle:disabled {
-    color: #8e9da9;
-    cursor: not-allowed;
-}
+
 
 .qc-footer__nav1 a,
 .qc-footer__nav2 a,
@@ -151,9 +93,28 @@
     text-decoration: underline;
 }
 
-.qc-footer__nav1 a:disabled,
-.qc-footer__nav2 a:disabled,
-.qc-footer__nav3 a:disabled {
-    color: #8e9da9;
-    cursor: not-allowed;
+
+
+.menu-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.qc-lozenge {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.qc-lozenge.qc-Menacée {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.qc-lozenge.qc-Vulnérable {
+    background-color: #ffcc00;
+    color: black;
 }

@@ -1069,20 +1069,20 @@ ol ul,
 ul ol,
 ul ul {
     margin-top: 0;
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 ul {
-    list-style: disc
+    list-style: disc;
 }
 
 ul ul {
-    list-style: circle
+    list-style: circle;
 }
 
 dl,
 dd {
-    margin: 0
+    margin: 0;
 }
 
 @font-face {

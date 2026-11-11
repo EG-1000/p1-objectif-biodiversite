@@ -1,7 +1,7 @@
 <?php
 $niveau = '';
 
-include($niveau . "inc/config.inc.php");
+include($niveau . "inc/confinge.inc.php");
 
 $strRequeteActualites = 'SELECT id, titre, auteur, date, texte, credit_photo
                         FROM actualites';
@@ -10,7 +10,7 @@ $pdosResultatActualites = $pdoConnexion->query($strRequeteActualites);
 
 $arrActualites = array();
 $ligne = $pdosResultatActualites->fetch();
-for ($cpt = 0; $ligne= $pdosResultatActualites->fetch(); $cpt++) {
+for ($cpt = 0; $ligne = $pdosResultatActualites->fetch(); $cpt++) {
     $arrActualites[$cpt]['id']  = $ligne['id'];
     $arrActualites[$cpt]['titre']  = $ligne['titre'];
     $arrActualites[$cpt]['auteur']  = $ligne['auteur'];
@@ -18,14 +18,14 @@ for ($cpt = 0; $ligne= $pdosResultatActualites->fetch(); $cpt++) {
     $arrActualites[$cpt]['credit_photo']  = $ligne['credit_photo'];
 
     $arrArticle = explode(" ", $ligne["texte"]);
-    if (count($arrArticle)> 44) {
-        array_splice($arrArticle,44, count($arrArticle));
+    if (count($arrArticle) > 44) {
+        array_splice($arrArticle, 44, count($arrArticle));
     }
     $arrActualites[$cpt]["texte"] = implode(" ", $arrArticle);
 }
 $pdosResultatActualites->closeCursor();
 shuffle($arrActualites);
-$arrActualites=array_slice($arrActualites,0, 3);
+$arrActualites = array_slice($arrActualites, 0, 3);
 
 ?>
 <!doctype html>
@@ -86,44 +86,44 @@ $arrActualites=array_slice($arrActualites,0, 3);
     </header>
     <main>
         <div class="qc-container">
-        <picture class="image">
-            <source media="(max-width: 360px)"
-                srcset="assets/images/IMG_Tortue-Luth_LouisabelleGagnon.jpg">
-            <img class="img" src="assets/images/IMG_Tortue-Luth_LouisabelleGagnon.jpg" alt="Tortue Luth LouisabelleGagnon">
-            <div>
-                <a href="especes/index.php" class="qc-button qc-primary">Découvrir les espèces</a>
-            </div>
-        </picture>
-        <h2>Actualités</h2>
-        <?php for ($cpt = 0; $cpt < count($arrActualites); $cpt++) { ?>
-        <article>
-            <figure>
-                <img alt="Image d'actualités de <?php echo $arrActualites[$cpt]['auteur']; ?>"
-                    src="<?php echo $niveau ?>assets/images/photos-actualites/<?php echo $arrActualites[$cpt]['id'] . ".jpeg"; ?>">
-                <figcaption>
-                    <p><?php echo $arrActualites[$cpt]['titre']; ?><br>
-                        <em><?php echo $arrActualites[$cpt]['credit_photo']; ?></em>
+            <picture class="image">
+                <source media="(max-width: 360px)"
+                    srcset="assets/images/IMG_Tortue-Luth_LouisabelleGagnon.jpg">
+                <img class="img" src="assets/images/IMG_Tortue-Luth_LouisabelleGagnon.jpg" alt="Tortue Luth LouisabelleGagnon">
+                <div>
+                    <a href="especes/index.php" class="qc-button qc-primary">Découvrir les espèces</a>
+                </div>
+            </picture>
+            <h2>Actualités</h2>
+            <?php for ($cpt = 0; $cpt < count($arrActualites); $cpt++) { ?>
+                <article>
+                    <figure>
+                        <img alt="Image d'actualités de <?php echo $arrActualites[$cpt]['auteur']; ?>"
+                            src="<?php echo $niveau ?>assets/images/photos-actualites/<?php echo $arrActualites[$cpt]['id'] . ".jpeg"; ?>">
+                        <figcaption>
+                            <p><?php echo $arrActualites[$cpt]['titre']; ?><br>
+                                <em><?php echo $arrActualites[$cpt]['credit_photo']; ?></em>
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <p><?php echo $arrActualites[$cpt]['date']; ?></p>
+                    <p style="font-weight:var(--qc-font-weight-content-bold);"><?php echo $arrActualites[$cpt]['titre']; ?></p>
+                    <p>
+                        <?php echo $arrActualites[$cpt]['texte']; ?>
+                        <a href="#" aria-label="Lire la suite de l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">...</a>
                     </p>
-                </figcaption>
-            </figure>
-            <p><?php echo $arrActualites[$cpt]['date']; ?></p>
-            <p style="font-weight:var(--qc-font-weight-content-bold);"><?php echo $arrActualites[$cpt]['titre']; ?></p>
-            <p>
-                <?php echo $arrActualites[$cpt]['texte']; ?>
-                <a href="#" aria-label="Lire la suite de l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">...</a>
-            </p>
-            <a href="#" aria-label="Lire l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">Lire l'article</a>
-        </article>
-        <?php } ?>
-        <h2> Status de protection</h2>
-        <p>Menacé : espèce, sous-espèce ou population dont la disparition est redoutée.</p>
-        <div>
-            <a href="especes/index.php?statut_LEMV=menacée" class="qc-button qc-secondary">Découvrir les espèces</a>
-        </div>
-        <p>Vulnérable : espèce, sous-espèce ou population dont la survie est jugée précaire. Sa disparition n’est pas redoutée à court ou à moyen terme.</p>
-        <div>
-            <a href="especes/index.php?statut_LEMV=vulnérable" class="qc-button qc-secondary">Découvrir les espèces</a>
-        </div>
+                    <a href="#" aria-label="Lire l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">Lire l'article</a>
+                </article>
+            <?php } ?>
+            <h2> Status de protection</h2>
+            <p>Menacé : espèce, sous-espèce ou population dont la disparition est redoutée.</p>
+            <div>
+                <a href="especes/index.php?statut_LEMV=menacée" class="qc-button qc-secondary">Découvrir les espèces</a>
+            </div>
+            <p>Vulnérable : espèce, sous-espèce ou population dont la survie est jugée précaire. Sa disparition n’est pas redoutée à court ou à moyen terme.</p>
+            <div>
+                <a href="especes/index.php?statut_LEMV=vulnérable" class="qc-button qc-secondary">Découvrir les espèces</a>
+            </div>
         </div>
     </main>
 
@@ -134,13 +134,17 @@ $arrActualites=array_slice($arrActualites,0, 3);
             <nav aria-label="Navigation du pied de page">
                 <ul>
                     <li>
-                        <a href="#">Accessibilité</a></li>
+                        <a href="#">Accessibilité</a>
+                    </li>
                     <li>
-                        <a href="#">Conditions d’utilisation</a></li>
+                        <a href="#">Conditions d’utilisation</a>
+                    </li>
                     <li>
-                        <a href="#">Confidentialité</a></li>
+                        <a href="#">Confidentialité</a>
+                    </li>
                     <li>
-                        <a href="https://design.quebec.ca" target="_blank" rel="noopener">Système de design gouvernemental</a></li>
+                        <a href="https://design.quebec.ca" target="_blank" rel="noopener">Système de design gouvernemental</a>
+                    </li>
                 </ul>
             </nav>
         </qc-piv-footer>
