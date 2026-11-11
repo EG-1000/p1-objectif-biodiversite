@@ -86,10 +86,10 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
 
     <main id="main" class="qc-main">
         <div class="qc-container">
-            <h1 class="qc-mb-4">Liste des espèces fauniques menacées ou vulnérables</h1>
+            <h1 class="qc-mb-1 title-center">Liste des espèces fauniques menacées ou vulnérables</h1>
             <section class="qc-section-1">
-                <a href="index.php">Toutes</a> |
-                <a href="index.php?statut_LEMV=menacée">Menacées</a> |
+                <a href="index.php">Toutes</a>
+                <a href="index.php?statut_LEMV=menacée">Menacées</a>
                 <a href="index.php?statut_LEMV=vulnérable">Vulnérables</a>
         </div>
 
@@ -146,7 +146,7 @@ $enregistrementDepart = $strIdPage * $nbEspeceParPage;
                         $strGroupe = $strGroupe . $groupe["nom_groupe"];
                     }
                     echo "<div class='section_espece'>" . "<span class='qc-" . $espece["statut_LEMV"] . "'aria-label='" . $espece["statut_LEMV"] . "'>" . $espece["statut_LEMV"] . '</span>' . "<li class='item'>" . "<h3 class='qc-h3'> <a class='footer__link--1' href='fiche/index.php?id=" . $espece["id_espece"] . "'>"
-                        . $espece["nom_francais"] . "</a></h3>"
+                        . $espece["nom_francais"] . "</a></h3>" . "<p>" . $espece["nom_scientifique"] . "</p>"
                         . "</li>" . "<p>Espece :" . $strGroupe . "</p>" . "</div>";
                 }
 

@@ -1,41 +1,59 @@
-# Projet 1 - Objectif Biodiversité Québec
-
-COMPLÉTER ET ADAPTER CE README
-La première partie est commune à l'équipe.
-La seconde partie "Mon processus" est à compléter individuellement.
-
-**Ceci est notre solution d'équipe pour le projet Objectif Biodiversité Québec.**
+# P1 - Objectif BioDiversité (2026)
 
 ## Sommaire
 
-- [Présentation](#présentation)
-  - [Capture écran](#capture-écran)
-  - [Liens](#liens)
-- [Mon processus](#mon-processus)
-  - [Technologies utilisées](#technologies-utilisées)
-  - [Ce que j'ai appris](#ce-ce-que-jai-appris)
-  - [Développement continu](#développement-continu)
-- [Auteur](#auteur)
+- [P1 - Objectif BioDiversité (2026)](#p1---objectif-biodiversité-2026)
+  - [Sommaire](#sommaire)
+  - [Présentation](#présentation)
+    - [Description, principaux défis](#description-principaux-défis)
+    - [Liens](#liens)
+  - [Mon Processus](#mon-processus)
+    - [Technologies utilisées](#technologies-utilisées)
+    - [Utilisation de l'IA](#utilisation-de-lia)
+  - [Rapport de tests](#rapport-de-tests)
+    - [Les améliorations possibles](#les-améliorations-possibles)
+    - [Les tests qui restent à faire](#les-tests-qui-restent-à-faire)
+  - [Bilan des apprentissages](#bilan-des-apprentissages)
+    - [Quels principaux apprentissages retenez-vous du projet Objectif Biodiversité Québec?](#quels-principaux-apprentissages-retenez-vous-du-projet-objectif-biodiversité-québec)
+    - [Développement continu](#développement-continu)
+  - [Commentaires sur le projet](#commentaires-sur-le-projet)
+    - [Le tableau de suivi dans Planner vous a-t-il été utile pour le suivi du projet? Comment pourrions-nous l’améliorer?](#le-tableau-de-suivi-dans-planner-vous-a-t-il-été-utile-pour-le-suivi-du-projet-comment-pourrions-nous-laméliorer)
+    - [Le déroulement des activités théoriques vs les activités de laboratoires vous sont-elles apparues adéquates?](#le-déroulement-des-activités-théoriques-vs-les-activités-de-laboratoires-vous-sont-elles-apparues-adéquates)
+    - [Avez-vous des commentaires critiques à émettre dans le but d’améliorer le déroulement et les apprentissages reliés à ce projet?](#avez-vous-des-commentaires-critiques-à-émettre-dans-le-but-daméliorer-le-déroulement-et-les-apprentissages-reliés-à-ce-projet)
+  - [Auteur.re](#auteurre)
 
 ## Présentation
-
-Rédiger une description du projet.
-
-### Capture écran
-
-### Liens
-
-- URL de la solution : [Lien vers mon dépôt GitHub](https://github.com)
-- URL du site en direct : [Lien vers GitHub Pages](https://github.io)
+ce projet vise, d'une part, à améliorer le site déjà présent sur le classement gouvernemental des statut des espèces, afin de le rendre plus intéressant pour tout les futurs client et ceux qui sont déja présents.
+### Description, principaux défis 
+ 
+### Liens 
+- [URL Github](https://github.com/USER )
+- [URL TimUnix3](https://timunix3.csfoy.ca~EQUIPE)
 
 ## Mon Processus
 
 ### Technologies utilisées
 
-### Ce que j'ai appris
+### Utilisation de l'IA 
 
+## Rapport de tests
+
+### Les améliorations possibles
+
+### Les tests qui restent à faire
+
+## Bilan des apprentissages
+### Quels principaux apprentissages retenez-vous du projet Objectif Biodiversité Québec? 
 ### Développement continu
-
 Pour mes prochains projets, je souhaite approfondir :
 
-## Auteur
+
+## Commentaires sur le projet
+
+### Le tableau de suivi dans Planner vous a-t-il été utile pour le suivi du projet? Comment pourrions-nous l’améliorer?
+
+### Le déroulement des activités théoriques vs les activités de laboratoires vous sont-elles apparues adéquates?  
+
+### Avez-vous des commentaires critiques à émettre dans le but d’améliorer le déroulement et les apprentissages reliés à ce projet? 
+
+## Auteur.re

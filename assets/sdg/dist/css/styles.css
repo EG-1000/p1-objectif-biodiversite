@@ -6,6 +6,63 @@
 @import url("qc-sdg.min.css");
 
 /* Custom navigation menu styles */
+.qc-section-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+
+
+.section_espece {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+
+}
+
+.display-especes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    list-style: none;
+    margin-top: -4rem;
+
+}
+
+.qc-Menacée {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.qc-Vulnérable {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    background-color: #ffcc00;
+    color: black;
+}
 
 .qc-pagination {
     display: flex;
@@ -30,6 +87,7 @@
 .qc-footer__nav-container {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
     gap: 2rem;
     flex-wrap: wrap;
     list-style: none;
@@ -65,6 +123,12 @@
 .qc-footer__nav3-toggle:active {
     text-decoration: underline;
 }
+
+.footer__link--1:visited {
+    color: white;
+    text-decoration: none;
+}
+
 
 
 
@@ -120,8 +184,16 @@
 @media (min-width: 768px) {
     .qc-section-2 {
         flex-direction: row;
-        align-items: center;
         gap: 5rem;
+    }
+
+    .display-especes {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .qc-footer__nav-container {
+        flex-direction: row;
     }
 }
 
@@ -132,55 +204,11 @@
 }
 
 .menu-nav__item {
-    margin: 0.5rem 0;
-    text-align: justify;
-}
 
-.section_espece {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-
+    text-justify: inter-word;
 
 }
 
-.display-especes {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.item {
-    list-style: none;
-    margin-top: -4rem;
-
-}
-
-.qc-Menacée {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25em 0.5em;
-    border-radius: 0.25em;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    background-color: #ff4d4d;
-    color: white;
-}
-
-.qc-Vulnérable {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25em 0.5em;
-    border-radius: 0.25em;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    background-color: #ffcc00;
-    color: black;
-}
 
 .footer__link--1 {
     color: white;
