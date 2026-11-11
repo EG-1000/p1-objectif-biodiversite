@@ -157,11 +157,11 @@ $arrEspecesVulSimilaires = array_slice($arrEspecesVulSimilaires, 0, 3);
 
     <main id="main">
         <div class="qc-container">
-            <p class="fil-dariane"></p>
+            <p class="fil-dariane">
             <a class="page precedente" href="<?php echo $niveau; ?>index.php">Accueil </a>
-            < <a class="page precedente" href="<?php echo $niveau; ?>especes/index.php"> Espèces </a>
-                < <a class="page courante" href="#"> Fiche d’une espèce</a>
-                    </p>
+            &lt; <a class="page precedente" href="<?php echo $niveau; ?>especes/index.php"> Espèces </a>
+                &lt; <a class="page courante" href="#"> Fiche d’une espèce</a>
+            </p>
                     <h1 class="qc-h1"><?php echo $arrEspeces['nom_francais']; ?></h1>
                     <div class="apercu">
                         <figure>
@@ -182,7 +182,7 @@ $arrEspecesVulSimilaires = array_slice($arrEspecesVulSimilaires, 0, 3);
                         </div>
                     </div>
                     <h2>Répartition</h2>
-                    <p><?php echo $arrEspeces['repartition']; ?></p>
+                    <?php echo $arrEspeces['repartition']; ?>
                     <figure>
                         <img alt="Carte de l’aire de répartition de la population de <?php echo $arrEspeces['nom_francais']; ?>"
                             src="<?php echo $niveau ?>assets/images/<?php echo $arrCartes['nom_image']; ?>">
@@ -194,17 +194,17 @@ $arrEspecesVulSimilaires = array_slice($arrEspecesVulSimilaires, 0, 3);
                         </figcaption>
                     </figure>
                     <h2>Habitat</h2>
-                    <p><?php echo $arrEspeces['habitat']; ?></p>
+                    <?php echo $arrEspeces['habitat']; ?>
                     <h2>État de la situation</h2>
-                    <p><?php echo $arrEspeces['etat_situation']; ?></p>
+                    <?php echo $arrEspeces['etat_situation']; ?>
                     <h2>Alimentation</h2>
-                    <p><?php echo $arrEspeces['alimentation']; ?></p>
+                    <?php echo $arrEspeces['alimentation']; ?>
                     <h2>Reproduction</h2>
-                    <p><?php echo $arrEspeces['reproduction']; ?></p>
+                    <?php echo $arrEspeces['reproduction']; ?>
                     <h2>Comportement</h2>
-                    <p><?php echo $arrEspeces['comportement']; ?></p>
+                    <?php echo $arrEspeces['comportement']; ?>
                     <h2>Menaces</h2>
-                    <p><?php echo $arrEspeces['menaces']; ?></p>
+                    <?php echo $arrEspeces['menaces']; ?>
                     <h2>Espèces du même groupe</h2>
                     <h3>Menacé</h3>
                     <ul>

@@ -8,6 +8,7 @@
     - [Description, principaux défis](#description-principaux-défis)
     - [Liens](#liens)
   - [Mon Processus](#mon-processus)
+    - [*Rhita*](#rhita)
     - [Technologies utilisées](#technologies-utilisées)
     - [Utilisation de l'IA](#utilisation-de-lia)
   - [Rapport de tests](#rapport-de-tests)
@@ -18,10 +19,9 @@
     - [Développement continu](#développement-continu)
   - [Commentaires sur le projet](#commentaires-sur-le-projet)
     - [Le tableau de suivi dans Planner vous a-t-il été utile pour le suivi du projet? Comment pourrions-nous l’améliorer?](#le-tableau-de-suivi-dans-planner-vous-a-t-il-été-utile-pour-le-suivi-du-projet-comment-pourrions-nous-laméliorer)
+    - [Le tableau de suivi dans Planner vous a-t-il été utile pour le suivi du projet? Comment pourrions-nous l’améliorer?](#le-tableau-de-suivi-dans-planner-vous-a-t-il-été-utile-pour-le-suivi-du-projet-comment-pourrions-nous-laméliorer-1)
     - [Le déroulement des activités théoriques vs les activités de laboratoires vous sont-elles apparues adéquates?](#le-déroulement-des-activités-théoriques-vs-les-activités-de-laboratoires-vous-sont-elles-apparues-adéquates)
     - [Avez-vous des commentaires critiques à émettre dans le but d’améliorer le déroulement et les apprentissages reliés à ce projet?](#avez-vous-des-commentaires-critiques-à-émettre-dans-le-but-daméliorer-le-déroulement-et-les-apprentissages-reliés-à-ce-projet)
-  - [Rhita.re](#rhitare)
-  - [Emile.re](#emilere)
   - [Mon Processus](#mon-processus-1)
   - [| Emile Germain  |](#-emile-germain--)
     - [Technologies utilisées](#technologies-utilisées-1)
@@ -34,34 +34,48 @@
     - [Quels principaux apprentissages retenez-vous du projet Objectif Biodiversité Québec?](#quels-principaux-apprentissages-retenez-vous-du-projet-objectif-biodiversité-québec-1)
     - [Développement continu](#développement-continu-1)
   - [Commentaires sur le projet](#commentaires-sur-le-projet-1)
-    - [Le tableau de suivi dans Planner vous a-t-il été utile pour le suivi du projet? Comment pourrions-nous l’améliorer?](#le-tableau-de-suivi-dans-planner-vous-a-t-il-été-utile-pour-le-suivi-du-projet-comment-pourrions-nous-laméliorer-1)
+    - [Le tableau de suivi dans Planner vous a-t-il été utile pour le suivi du projet? Comment pourrions-nous l’améliorer?](#le-tableau-de-suivi-dans-planner-vous-a-t-il-été-utile-pour-le-suivi-du-projet-comment-pourrions-nous-laméliorer-2)
     - [Le déroulement des activités théoriques vs les activités de laboratoires vous sont-elles apparues adéquates?](#le-déroulement-des-activités-théoriques-vs-les-activités-de-laboratoires-vous-sont-elles-apparues-adéquates-1)
     - [Avez-vous des commentaires critiques à émettre dans le but d’améliorer le déroulement et les apprentissages reliés à ce projet?](#avez-vous-des-commentaires-critiques-à-émettre-dans-le-but-daméliorer-le-déroulement-et-les-apprentissages-reliés-à-ce-projet-1)
+  - [Rhita.re](#rhitare)
+  - [Emile.re](#emilere)
+>>>>>>> bc86de7 (remplissage du Readme)
 
 ## Présentation
 ce projet vise, d'une part, à améliorer le site déjà présent sur le classement gouvernemental des statut des espèces, afin de le rendre plus intéressant pour tout les futurs client et ceux qui sont déja présents.
 ### Description, principaux défis 
- 
+- L'allignement du texte et du bouton sur l'image hero.
+- La répartition de l'image de l'espece et son contenu dans une grille.
+- Le conflit avec le dossier "config.inc.php".
+- La recherche de quelques styles dans la trousse fournis.
 ### Liens 
 - [URL Github](https://github.com/USER )
 - [URL TimUnix3](https://timunix3.csfoy.ca~EQUIPE)
 
 
 ## Mon Processus
-
-
+### *Rhita*
 ### Technologies utilisées
-
+- github
+- html5
+- css
+- sql
+- phpMyAdmin
 ### Utilisation de l'IA 
-
+Je l'ai utilisé pour me rappeler de quelques lignes de code et leurs fonctionnalitées, par example: Quel est le rôle de "position: absolute et relative"
 ## Rapport de tests
 
 ### Les améliorations possibles
-
+Une meilleure mise en page du contenu, par example dans l'accueil j'ai dû utiliser un design plus intéressant pour la section "Espèces du même groupe".
+  
 ### Les tests qui restent à faire
-
+La mise en ligne sur timunix
 ## Bilan des apprentissages
 ### Quels principaux apprentissages retenez-vous du projet Objectif Biodiversité Québec? 
+- Utilisation d'un système de design
+- Utilisation du Sql pour le contenu
+- utilisation du Html pour l'affichage
+
 ### Développement continu
 
 ## Commentaires sur le projet
@@ -69,13 +83,14 @@ bon projet pour reviser le php qu'on apprend depuis le debut.
 ### Le tableau de suivi dans Planner vous a-t-il été utile pour le suivi du projet? Comment pourrions-nous l’améliorer?
 
 
+C'était intéressant de travailler avec la trousse de design du Système de design gouvernemental et de savoir les différents états de chaque composant.
+### Le tableau de suivi dans Planner vous a-t-il été utile pour le suivi du projet? Comment pourrions-nous l’améliorer?
+En moitié. Ma partie préféré c'était de cocher les tâches complétées, mais on devait à chaque fois envoyer le lien vers le planner même si on a déja invité les deux profs comme collaborateurs. 
 ### Le déroulement des activités théoriques vs les activités de laboratoires vous sont-elles apparues adéquates?  
-
+Au début j'ai pas bien compris car le contenu est séparés entre les deux profs, donc il y adu contenu qu'on trouvait dans le dossier de l'autre cours, mais après la finnalisation du côté design c'était pus claire.
 ### Avez-vous des commentaires critiques à émettre dans le but d’améliorer le déroulement et les apprentissages reliés à ce projet? 
+non
 
-## Rhita.re
-
-## Emile.re
 ## Mon Processus
 | Emile Germain  |
 ------------------
@@ -116,3 +131,6 @@ oui, bien qu'on puisse toujours l'améliorer
 ### Avez-vous des commentaires critiques à émettre dans le but d’améliorer le déroulement et les apprentissages reliés à ce projet? 
 ^emile^
 `permettre une option javascript, sur certaines parties seulement afin de permettre la révision du javascript (sa commence à se perdre dans ma tête.)`
+
+## Rhita.re
+## Emile.re
