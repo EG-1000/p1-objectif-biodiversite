@@ -115,6 +115,8 @@ non
 beaucoup de problèmes du au fait que une personne avait Xampp et l'autre, Mamp (ports différents Notamment pour Apache)
 ### Les améliorations possibles
 tout coder en php, selon les besoin du projet.
+il y avait aucun javascript requis au départ
+
 ### Les tests qui restent à faire
 aucun.
 ## Bilan des apprentissages
