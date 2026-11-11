@@ -45,16 +45,17 @@ $pdosResultat->closeCursor();
 
 $strRequeteCarte = 'SELECT nom_image, `bas-de-vignette`
                FROM images
-               WHERE `est_aire-repartition` = 1';
+               INNER JOIN especes ON images.espece_id= especes.id
+               WHERE especes.id = ' . $strIdEspece . ' AND `est_aire-repartition` = 1';
 
 $pdosResultatCarte = $pdoConnexion->query($strRequeteCarte);
 
 $arrCartes = array();
-$ligne = $pdosResultatCarte->fetch();
+$ligneCarte = $pdosResultatCarte->fetch();
 for ($cpt = 0; $cpt < $pdosResultatCarte->rowCount(); $cpt++) {
-    $arrCartes['nom_image']  = $ligne['nom_image'];
-    $arrCartes['bas-de-vignette']  = $ligne['bas-de-vignette'];
-    $ligne = $pdosResultatCarte->fetch();
+    $arrCartes['nom_image']  = $ligneCarte['nom_image'];
+    $arrCartes['bas-de-vignette']  = $ligneCarte['bas-de-vignette'];
+    $ligneCarte = $pdosResultatCarte->fetch();
 }
 $pdosResultatCarte->closeCursor();
 
@@ -103,7 +104,7 @@ $pdosResultatSim->closeCursor();
     <title>Démo trousse SDG — Cégep</title>
 
     <!-- Feuille de styles de la trousse (design gouvernemental). -->
-    <link rel="stylesheet" href="<?php echo $niveau . "assets/sdg/dist/css/qc-sdg.min.css" ?>">
+    <link rel="stylesheet" href="<?php echo $niveau . "assets/sdg/dist/css/styles.css" ?>">
 
     <!-- Script des composants web de la trousse. -->
     <script defer src="<?php echo $niveau . "assets/sdg/dist/js/qc-sdg.min.js" ?>"></script>
@@ -111,34 +112,70 @@ $pdosResultatSim->closeCursor();
 
 <body>
     <header>
-        <qc-piv-header
-            title-text="Démonstration — Système de design gouvernemental"
-            alt-logo="Signature du gouvernement du Québec.">
-        </qc-piv-header>
+        <div id="pivEnteteExempleRecherchePersonnalisee">
+            <qc-piv-header title-text="Objectif Biodiversité Québec"
+                title-url
+                alt-logo="Accédez à Québec.ca"
+                enable-search="true"
+                show-search="true">
+                <ul slot="links">
+                    <li><a href="#fakeEnglish">English</a>
+                    </li>
+                    <li><a href="#">Nous joindre</a>
+                    </li>
+                </ul>
+
+                <form slot="search-zone"
+                    method="get"
+                    action="https://www.google.ca/search">
+                    <qc-search-bar name="q"
+                        piv-background></qc-search-bar>
+                </form>
+            </qc-piv-header>
+        </div>
+        <nav class="nav-menu">
+            <ul class="nav-menu__list">
+                <li class="nav-menu__item">
+                    <a class="nav-menu__link" href="<?php echo $niveau; ?>index.php">Accueil</a>
+                </li>
+                <li class="nav-menu__item active">
+                    <a class="nav-menu__link" href="<?php echo $niveau; ?>especes/index.php">Espèces</a>
+                </li>
+                <li class="nav-menu__item">
+                    <a class="nav-menu__link" href="<?php echo $niveau; ?>#">À propos</a>
+                </li>
+                <li class="nav-menu__item">
+                    <a class="nav-menu__link" href="<?php echo $niveau; ?>#">Nous contacter</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main id="main">
         <div class="qc-container">
-            <h1 class="qc-h1"><span class="qc-subhead ">Fiche</span><?php echo $arrEspeces['nom_francais']; ?></h1>
-            <figure>
-                <img alt="Image de l'espèce <?php echo $arrEspeces['nom_francais']; ?>"
+            <h1 class="qc-h1"><?php echo $arrEspeces['nom_francais']; ?></h1>
+            <div class="apercu">
+                <figure>
+                    <img alt="Image de l'espèce <?php echo $arrEspeces['nom_francais']; ?>"
                     src="<?php echo $niveau ?>assets/images/<?php echo $arrEspeces['nom_image']; ?>">
-
-                <figcaption>
-                    <p><?php echo $arrEspeces['nom_francais']; ?><br>
+                    <figcaption>
+                        <p><?php echo $arrEspeces['nom_francais']; ?><br>
                         <em><?php echo $arrEspeces['bas-de-vignette']; ?></em>
                     </p>
                 </figcaption>
             </figure>
-            <p>Nom<br><?php echo $arrEspeces['nom_francais']; ?></p>
-            <p>Nom scientifique<br><?php echo $arrEspeces['nom_scientifique']; ?></p>
-            <p>Autres noms français<br><?php echo $arrEspeces['autres_noms_francais']; ?></p>
-            <p>Statut<br><?php echo $arrEspeces['statut_LEMV']; ?></p>
-            <p>Groupe<br><?php echo $arrEspeces['nom_groupe']; ?></p>
+            <div class="info">
+                <p><strong>Nom</strong><br><?php echo $arrEspeces['nom_francais']; ?></p>
+                <p><strong>Nom scientifique</strong><br><?php echo $arrEspeces['nom_scientifique']; ?></p>
+                <p><strong>Autres noms français</strong><br><?php echo $arrEspeces['autres_noms_francais']; ?></p>
+                <p><strong>Statut</strong><br><?php echo $arrEspeces['statut_LEMV']; ?></p>
+                <p><strong>Groupe</strong><br><?php echo $arrEspeces['nom_groupe']; ?></p>
+            </div>
+            </div>
             <h2>Répartition</h2>
             <p><?php echo $arrEspeces['repartition']; ?></p>
             <figure>
-                <img alt="Image de l'espèce <?php echo $arrEspeces['nom_francais']; ?>"
+                <img alt="Carte de l’aire de répartition de la population de <?php echo $arrEspeces['nom_francais']; ?>"
                     src="<?php echo $niveau ?>assets/images/<?php echo $arrCartes['nom_image']; ?>">
 
                 <figcaption>

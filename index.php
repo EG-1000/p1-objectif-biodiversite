@@ -12,16 +12,20 @@ $arrActualites = array();
 $ligne = $pdosResultatActualites->fetch();
 for ($cpt = 0; $ligne = $pdosResultatActualites->fetch(); $cpt++) {
     $arrActualites[$cpt]['id']  = $ligne['id'];
-    $arrActualites[$cpt]['titre']  = $ligne['titre'];
+    $arrActualites[$cpt]['titre']= $ligne['titre'];
     $arrActualites[$cpt]['auteur']  = $ligne['auteur'];
     $arrActualites[$cpt]['date']  = $ligne['date'];
     $arrActualites[$cpt]['credit_photo']  = $ligne['credit_photo'];
 
-    $arrArticle = explode(" ", $ligne["texte"]);
-    if (count($arrArticle) > 44) {
-        array_splice($arrArticle, 44, count($arrArticle));
+    $arrTitre = explode(" ", $ligne["titre"]);
+    $nbrMots = count($arrTitre);
+    $limiteTexte = 44 - $nbrMots;
+    $arrTexte = explode(" ", $ligne["texte"]);
+    if (count($arrTexte) > $limiteTexte) {
+        array_splice($arrTexte, $limiteTexte);
     }
-    $arrActualites[$cpt]["texte"] = implode(" ", $arrArticle);
+        $arrActualites[$cpt]["texte"] = implode(" ", $arrTexte);
+    
 }
 $pdosResultatActualites->closeCursor();
 shuffle($arrActualites);
@@ -67,12 +71,12 @@ $arrActualites = array_slice($arrActualites, 0, 3);
                 </form>
             </qc-piv-header>
         </div>
-        <!-- <nav class="nav-menu">
+        <nav class="nav-menu">
             <ul class="nav-menu__list">
                 <li class="nav-menu__item">
                     <a class="nav-menu__link" href="<?php echo $niveau; ?>index.php">Accueil</a>
                 </li>
-                <li class="nav-menu__item">
+                <li class="nav-menu__item active">
                     <a class="nav-menu__link" href="<?php echo $niveau; ?>especes/index.php">Espèces</a>
                 </li>
                 <li class="nav-menu__item">
@@ -82,48 +86,48 @@ $arrActualites = array_slice($arrActualites, 0, 3);
                     <a class="nav-menu__link" href="<?php echo $niveau; ?>#">Nous contacter</a>
                 </li>
             </ul>
-        </nav> -->
+        </nav>
     </header>
     <main>
+        
+        
+        <figure class="image-hero">
+            <img alt="Tortue Luth LouisabelleGagnon"
+            src="assets/images/IMG_Pluvier-Siffleur_PierrePouliot_MELCCFP.jpg">
+            <div>
+                <h1 class="hero-text">Découvrir. Comprendre. Protéger</h1>
+                <a href="especes/index.php" class="qc-button qc-primary">Découvrir les espèces</a>
+            </div>
+        </figure>
         <div class="qc-container">
-            <picture class="image">
-                <source media="(max-width: 360px)"
-                    srcset="assets/images/IMG_Tortue-Luth_LouisabelleGagnon.jpg">
-                <img class="img" src="assets/images/IMG_Tortue-Luth_LouisabelleGagnon.jpg" alt="Tortue Luth LouisabelleGagnon">
-                <div>
-                    <a href="especes/index.php" class="qc-button qc-primary">Découvrir les espèces</a>
-                </div>
-            </picture>
-            <h2>Actualités</h2>
-            <?php for ($cpt = 0; $cpt < count($arrActualites); $cpt++) { ?>
-                <article>
-                    <figure>
-                        <img alt="Image d'actualités de <?php echo $arrActualites[$cpt]['auteur']; ?>"
-                            src="<?php echo $niveau ?>assets/images/photos-actualites/<?php echo $arrActualites[$cpt]['id'] . ".jpeg"; ?>">
-                        <figcaption>
-                            <p><?php echo $arrActualites[$cpt]['titre']; ?><br>
-                                <em><?php echo $arrActualites[$cpt]['credit_photo']; ?></em>
-                            </p>
-                        </figcaption>
-                    </figure>
-                    <p><?php echo $arrActualites[$cpt]['date']; ?></p>
-                    <p style="font-weight:var(--qc-font-weight-content-bold);"><?php echo $arrActualites[$cpt]['titre']; ?></p>
-                    <p>
-                        <?php echo $arrActualites[$cpt]['texte']; ?>
-                        <a href="#" aria-label="Lire la suite de l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">...</a>
-                    </p>
-                    <a href="#" aria-label="Lire l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">Lire l'article</a>
-                </article>
-            <?php } ?>
-            <h2> Status de protection</h2>
-            <p>Menacé : espèce, sous-espèce ou population dont la disparition est redoutée.</p>
-            <div>
-                <a href="especes/index.php?statut_LEMV=menacée" class="qc-button qc-secondary">Découvrir les espèces</a>
-            </div>
-            <p>Vulnérable : espèce, sous-espèce ou population dont la survie est jugée précaire. Sa disparition n’est pas redoutée à court ou à moyen terme.</p>
-            <div>
-                <a href="especes/index.php?statut_LEMV=vulnérable" class="qc-button qc-secondary">Découvrir les espèces</a>
-            </div>
+        <h2>Actualités</h2>
+        <div class="section">
+        <?php for ($cpt = 0; $cpt < count($arrActualites); $cpt++) { ?>
+        <article class="article">
+            <figure class="images-actu">
+                <img alt="Image d'actualités de <?php echo $arrActualites[$cpt]['auteur']; ?>"
+                    src="<?php echo $niveau ?>assets/images/photos-actualites/<?php echo $arrActualites[$cpt]['id'] . ".jpeg"; ?>">
+                
+            </figure>
+            <p><?php echo $arrActualites[$cpt]['date']; ?></p>
+            <p style="font-weight:var(--qc-font-weight-content-bold);"><?php echo $arrActualites[$cpt]['titre']; ?></p>
+            <p>
+                <?php echo $arrActualites[$cpt]['texte']; ?>
+                <a href="#" aria-label="Lire la suite de l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">...</a>
+            </p>
+            <a class="qc-font-size-md" href="#" aria-label="Lire l'article sur <?php echo $arrActualites[$cpt]['titre']; ?>">Lire l'article</a>
+        </article>
+        <?php } ?>
+    </div>
+        <h2> Status de protection</h2>
+        <p><strong>Menacé</strong> : espèce, sous-espèce ou population dont la disparition est redoutée.</p>
+        <div>
+            <a href="especes/index.php?statut_LEMV=menacée" class="qc-button qc-secondary">Découvrir les espèces menacées</a>
+        </div>
+        <p><strong>Vulnérable</strong> : espèce, sous-espèce ou population dont la survie est jugée précaire. Sa disparition n’est pas redoutée à court ou à moyen terme.</p>
+        <div>
+            <a href="especes/index.php?statut_LEMV=vulnérable" class="qc-button qc-secondary">Découvrir les espèces vulnérables</a>
+        </div>
         </div>
     </main>
 
